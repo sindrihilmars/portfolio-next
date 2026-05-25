@@ -1,0 +1,201 @@
+/* ============================================================
+   HIGHLANDS — core design tokens
+   Glacier neutrals + volcanic warmth. Soft voice, hard edges.
+   Drop this file in and reference --vars from anywhere.
+   ============================================================ */
+
+/* ----- Brand serif: Source Serif 4 (variable) — local, official ----- */
+@font-face {
+  font-family: 'Source Serif 4';
+  src: url('fonts/SourceSerif4-VariableFont.ttf') format('truetype-variations');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Source Serif 4';
+  src: url('fonts/SourceSerif4-Italic-VariableFont.ttf') format('truetype-variations');
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ----- Body sans: Bricolage Grotesque (Google Fonts, still substituted) ----- */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---------- COLOR ---------- */
+
+  /* Glacier — cold neutrals (snow, slate, wet rock) */
+  --glacier-50:  #f4f6f7;
+  --glacier-100: #e6eaec;
+  --glacier-200: #cdd5d9;
+  --glacier-300: #a9b5bb;
+  --glacier-400: #7d8c93;
+  --glacier-500: #58656c;
+  --glacier-700: #38444a;
+  --glacier-900: #1c262b;
+
+  /* Primary — volcanic crater (the brand warmth) */
+  --primary-100: #f6ddd0;
+  --primary-300: #df9168;
+  --primary-500: #c0492a;   /* THE brand color — ember red */
+  --primary-700: #8a2f1c;
+
+  /* Accents — glacial water, highland moss, warm ember */
+  --accent-glacier: #2bb6c4;
+  --accent-moss:    #8a9637;
+  --accent-ember:   #e89d3c;
+
+  /* Semantic */
+  --success: #5f8a4a;
+  --warning: #d99b2b;
+  --error:   #b23a28;
+
+  /* Semantic surface / foreground aliases */
+  --bg:        var(--glacier-50);
+  --bg-subtle: var(--glacier-100);
+  --surface:   #ffffff;
+  --border:    var(--glacier-200);
+  --border-strong: var(--glacier-900);
+  --fg:        var(--glacier-900);
+  --fg-muted:  var(--glacier-700);
+  --fg-subtle: var(--glacier-500);
+  --brand:     var(--primary-500);
+  --brand-deep:var(--primary-700);
+  --accent:    var(--primary-700);   /* italic asides */
+
+  /* ---------- TYPE ---------- */
+
+  --font-display: 'Source Serif 4', Georgia, serif;       /* brand serif — display */
+  --font-body:    'Bricolage Grotesque', system-ui, sans-serif;
+  --font-accent:  'Source Serif 4', Georgia, serif;       /* brand serif — italic asides */
+  --font-mono:    ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+
+  --text-xs:   0.75rem;     /* 12 */
+  --text-sm:   0.875rem;    /* 14 */
+  --text-base: 1rem;        /* 16 */
+  --text-lg:   1.25rem;     /* 20 */
+  --text-xl:   1.625rem;    /* 26 */
+  --text-2xl:  2.125rem;    /* 34 */
+  --text-3xl:  2.875rem;    /* 46 */
+  --text-4xl:  3.875rem;    /* 62 */
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  --leading-tight:  1.15;   /* display */
+  --leading-snug:   1.35;
+  --leading-normal: 1.6;    /* body, breathes */
+
+  --tracking-body:    0.005em;
+  --tracking-display:-0.018em;
+  --tracking-caps:    0.09em;   /* uppercase chrome — buttons, eyebrows */
+
+  /* ---------- SPACING (4px base) ---------- */
+  --space-1:  0.25rem;   /*  4 */
+  --space-2:  0.5rem;    /*  8 */
+  --space-3:  0.75rem;   /* 12 */
+  --space-4:  1rem;      /* 16 */
+  --space-6:  1.5rem;    /* 24 */
+  --space-8:  2rem;      /* 32 */
+  --space-12: 3rem;      /* 48 */
+  --space-16: 4rem;      /* 64 */
+
+  /* ---------- RADII ---------- */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-full: 999px;
+
+  /* ---------- SHADOWS ---------- */
+  /* Soft, cold-tinted (slate) — matches the glacier palette */
+  --shadow-sm: 0 1px 3px rgba(28, 38, 43, 0.10);
+  --shadow-md: 0 6px 18px rgba(28, 38, 43, 0.12);
+  --shadow-lg: 0 16px 40px rgba(28, 38, 43, 0.16);
+
+  /* ---------- BUTTONS — the harsh counterpoint ---------- */
+  --btn-radius:      0px;            /* sharp */
+  --btn-tracking:    0.09em;         /* tracked uppercase */
+  --btn-weight:      600;
+  --btn-pad-y:       0.85rem;
+  --btn-pad-x:       1.6rem;
+  --btn-transition:  0.06s linear;
+  --btn-shadow:      4px 4px 0 var(--glacier-900);  /* hard offset, no blur */
+  --btn-shadow-down: 1px 1px 0 var(--glacier-900);  /* pressed */
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Opt-in by adding class="hl" to a wrapper, or apply globally.
+   ============================================================ */
+
+.hl, .hl * { box-sizing: border-box; }
+
+.hl {
+  font-family: var(--font-body);
+  color: var(--fg);
+  background: var(--bg);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.hl h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--fg);
+}
+.hl h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
+}
+.hl h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+.hl h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+.hl p {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--fg-muted);
+}
+.hl .lead {
+  font-size: var(--text-lg);
+  color: var(--fg-muted);
+  max-width: 36ch;
+}
+.hl .eyebrow,
+.hl .aside {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--brand-deep);
+}
+.hl .eyebrow { font-size: var(--text-lg); }
+.hl .caption {
+  font-size: var(--text-xs);
+  color: var(--fg-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.hl code, .hl kbd, .hl pre { font-family: var(--font-mono); font-size: 0.92em; }
+.hl code {
+  background: var(--bg-subtle);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  color: var(--fg);
+}
