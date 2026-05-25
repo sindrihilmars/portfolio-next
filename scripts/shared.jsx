@@ -85,13 +85,13 @@ function resolvePalette(name, dark) {
 }
 
 const PROFILE = {
-  name: 'Eivind Kjær',
-  initials: 'EK',
+  name: 'Sindri Hilmarsson',
+  initials: 'SH',
   role: 'Engineer · Team lead · AI tinkerer',
   location: 'Trondheim, NO',
-  email: 'hello@eivind.dev',
-  github: 'github.com/eivindk',
-  linkedin: 'in/eivindk',
+  email: 'sindrihilmars@gmail.com',
+  github: 'github.com/sindrihilmars',
+  linkedin: 'in/sindrihilmars',
   blurb: 'I work between high-voltage hardware and applied machine learning — Formula Student by day, edge models for fish and field reports by night.',
 };
 
@@ -120,14 +120,14 @@ const PROJECTS = [
   },
   {
     num: '03',
-    name: 'Construction Copilot',
+    name: 'Dagskýrslutól',
     tag:  'Applied AI',
     role: 'Builder',
-    year: '2025',
-    status: 'Pilot',
+    year: '2025—',
+    status: 'Daily production',
     href: 'work/construction-copilot.html',
-    blurb: 'An agent that drafts site reports for construction supervisors from photos, voice notes and the day\'s drawings — on-site, in minutes.',
-    bullets: ['Multi-modal evidence (photo + voice + plan)', 'Tool-use agent with citation traces', '4 pilots running on real sites'],
+    blurb: 'A voice-first daily-reporting copilot for Icelandic worksites. Supervisors dictate the day; Claude extracts structured fields; ReportLab renders the company\'s existing PDF — in Icelandic, in seconds.',
+    bullets: ['Python · Claude · Whisper · Telegram', 'Clarification loops + Opus→Sonnet→Haiku fallback', 'Multilingual input → Icelandic output'],
     art: 'agent',
   },
   {

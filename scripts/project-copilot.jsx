@@ -43,7 +43,7 @@ function CopilotPage({ palette: p }) {
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
           <span style={{ fontFamily: fontDisplay, fontStyle: 'italic',
             fontSize: 26, fontWeight: 400, color: p.clay }}>
-            Eivind&nbsp;Kjær
+            Sindri&nbsp;Hilmarsson
           </span>
           <span style={{ fontFamily: fontText, fontSize: 11, color: p.mute,
             letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 500 }}>
@@ -76,7 +76,7 @@ function CopilotPage({ palette: p }) {
       }}>
         <a href="../index.html#work" style={{ color: p.mute, textDecoration: 'none' }}>← Work</a>
         <span style={{ color: p.line }}>/</span>
-        <span style={{ color: p.ink }}>Construction Copilot</span>
+        <span style={{ color: p.ink }}>Dagskýrslutól</span>
       </div>
 
       {/* ─── article header ─────────────────────────────────────────── */}
@@ -94,24 +94,33 @@ function CopilotPage({ palette: p }) {
             </span>
             <span style={{ fontFamily: fontText, fontSize: 11, color: p.ink,
               textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 600 }}>
-              Applied AI · 2025
+              Applied AI · 2025—
             </span>
           </div>
           <h1 style={{
             fontFamily: fontDisplay, fontWeight: 600,
             fontSize: 92, lineHeight: 1.0,
             letterSpacing: '-0.018em',
-            margin: '0 0 28px', color: p.ink,
+            margin: '0 0 18px', color: p.ink,
           }}>
-            Construction<br/>Copilot.
+            Dagskýrslutól.
           </h1>
+          <p style={{
+            fontFamily: fontText, fontSize: 13, color: p.mute,
+            letterSpacing: '0.05em', textTransform: 'uppercase',
+            fontWeight: 600, margin: '0 0 22px',
+          }}>
+            A daily-reporting copilot for Icelandic worksites.
+          </p>
           <p style={{
             fontFamily: fontDisplay, fontStyle: 'italic',
             fontSize: 24, fontWeight: 400, lineHeight: 1.4,
-            color: p.clay, maxWidth: 560, margin: 0,
+            color: p.clay, maxWidth: 580, margin: 0,
           }}>
-            An agent that drafts site reports for construction supervisors
-            from photos, voice notes and the day's drawings — on-site, in minutes.
+            Site supervisors dictate the day from the worksite. Claude reads
+            the recording, asks the right follow-ups, and renders a finished
+            PDF in the company's own report format — before the supervisor
+            gets in the car to drive home.
           </p>
         </div>
 
@@ -123,9 +132,9 @@ function CopilotPage({ palette: p }) {
         }}>
           {[
             ['Role',    'Builder · solo'],
-            ['Span',    '2025, four months'],
-            ['Stack',   'Python, OpenAI, ' + 'tool-use orchestration'],
-            ['Status',  'Pilot · 4 sites'],
+            ['Span',    '2025 — ongoing'],
+            ['Stack',   'Python · Claude · Whisper · Telegram'],
+            ['Status',  'Daily production'],
           ].map(([k, v]) => (
             <div key={k}>
               <div style={{ fontFamily: fontText, fontSize: 10, color: p.mute,
@@ -154,33 +163,36 @@ function CopilotPage({ palette: p }) {
           <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 44,
             lineHeight: 1.05, letterSpacing: '-0.018em',
             margin: 0, color: p.ink }}>
-            Drafting reports<br/>
-            is the slowest<br/>
-            part of the day.
+            The report<br/>
+            is the last hour<br/>
+            of every day.
           </h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 22,
           fontSize: 18, lineHeight: 1.65, color: p.mute, maxWidth: 620 }}>
           <p style={{ margin: 0 }}>
-            A site supervisor on a mid-size construction project files a daily
-            report. The report says what was built, what was delayed, what was
-            inspected, and what's blocking tomorrow. It takes most supervisors
-            between 45 minutes and two hours at the end of the day, and it's
-            done from memory.
+            I work as a construction worker for a mid-size Icelandic earthworks
+            contractor. Each day the site supervisor writes a daily report for
+            the client — crew on site, machines used, hours worked, weather,
+            what got done, what's blocking tomorrow. It's the audit trail the
+            public infrastructure agencies require, and it has to look the
+            same way every time.
           </p>
           <p style={{ margin: 0 }}>
-            We approached this by treating the report not as a form but as
-            a <em style={{ fontFamily: fontDisplay, color: p.ink }}>summary
-            of evidence the supervisor was already capturing</em> —
-            photos taken on their phone, voice notes dictated between trades,
-            and the day's drawings marked up on a tablet. The evidence existed.
-            Nobody was reading it back to themselves at 6pm.
+            That report is the slowest part of the supervisor's day. It's
+            written at the end of a ten-hour shift, from memory, on a laptop
+            in the truck. The information already exists in his head — he
+            knows exactly what happened. The friction is{' '}
+            <em style={{ fontFamily: fontDisplay, color: p.ink }}>typing
+            it into the right shape</em>.
           </p>
           <p style={{ margin: 0 }}>
-            The brief we wrote with the pilot partner was deliberately small:
-            cut the writing time in half, keep every claim traceable to a
-            piece of evidence, and never invent anything that wasn't said,
-            shown, or drawn.
+            So I built the supervisor a voice copilot. The brief was small:
+            let him say what happened, in Icelandic, the way he'd say it to
+            a colleague. The system turns that into the company's existing
+            PDF — same template, same fields, same look as before. He reviews
+            it on the phone or laptop and sends it. The report stops being
+            a writing task and becomes a talking task.
           </p>
         </div>
       </section>
@@ -192,21 +204,24 @@ function CopilotPage({ palette: p }) {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr',
           gap: 80, marginBottom: 56 }}>
           <div>
-            <SectionLabel num="02">What we built</SectionLabel>
+            <SectionLabel num="02">How it works</SectionLabel>
             <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 44,
               lineHeight: 1.05, letterSpacing: '-0.018em',
               margin: 0, color: p.ink }}>
-              Three screens.<br/>
-              One job.
+              Listen.<br/>
+              Reason.<br/>
+              Render.
             </h2>
           </div>
           <div style={{ fontSize: 18, lineHeight: 1.65, color: p.mute,
             maxWidth: 620, alignSelf: 'end' }}>
             <p style={{ margin: 0 }}>
-              The product is small on purpose. The supervisor opens it on a phone
-              or tablet, drops in whatever they've collected, reads the draft,
-              checks the citations, and sends it. Below: the three screens that
-              do that, drawn in their working geometry.
+              The supervisor talks to it through a Telegram bot on his phone
+              or a one-button CLI on the laptop in the truck. Three stages
+              do the work: a voice layer, a reasoning layer, and a rendering
+              layer. The Icelandic PDF that comes out the other end is byte-
+              compatible with what the company already submits — clients
+              shouldn't even notice the workflow changed.
             </p>
           </div>
         </div>
@@ -216,35 +231,35 @@ function CopilotPage({ palette: p }) {
           <AnnotatedScreen
             palette={p} fontDisplay={fontDisplay} fontMono={fontMono} fontText={fontText}
             num="i"
-            title="Ingest"
-            blurb="The supervisor drops in the day's evidence in any combination — a folder of photos, a voice memo, the marked-up drawing. The agent classifies each piece into a single timeline before it writes a word."
+            title="Listen"
+            blurb="The supervisor records a voice note from wherever he is — Telegram from the phone, or a single keystroke on the laptop. Whisper transcribes Icelandic on-device, biased with a construction glossary and the day's crew roster so it gets names and trade terms right the first time."
             screen={<ScreenIngest palette={p} fontMono={fontMono} fontText={fontText}/>}
             annotations={[
-              { x: 12, y: 22, w: 220, label: 'Drag-drop. Any combo. Order doesn\'t matter.' },
-              { x: 68, y: 64, w: 200, label: 'Voice notes are transcribed locally before upload.' },
+              { x: 12, y: 22, w: 220, label: 'Voice in from Telegram or laptop CLI. Same backend either way.' },
+              { x: 68, y: 64, w: 220, label: 'Whisper biased with crew + machine + site vocabulary per supervisor.' },
             ]}
           />
           <AnnotatedScreen
             palette={p} fontDisplay={fontDisplay} fontMono={fontMono} fontText={fontText}
             num="ii"
-            title="Draft"
-            blurb="The agent writes the report paragraph by paragraph, in the supervisor's house style. Every claim is anchored to the evidence it came from. The supervisor reads and edits — they never re-write from scratch."
+            title="Reason"
+            blurb="Claude reads the transcript with tool-use and extracts the report's structured fields — crew count, machines, hours, weather, narrative. When something is ambiguous it asks the supervisor back over Telegram instead of guessing. If Opus is busy the call falls back to Sonnet, then Haiku — a missed report would be a missed day."
             screen={<ScreenDraft palette={p} fontMono={fontMono} fontText={fontText}/>}
             reverse
             annotations={[
-              { x: 8, y: 14, w: 220, label: 'Section structure follows the site\'s report template.' },
-              { x: 56, y: 60, w: 240, label: 'Inline citation chips. Click to see the source evidence.' },
+              { x: 8, y: 14, w: 240, label: 'Tool-use extraction into a Pydantic schema. The schema is the contract.' },
+              { x: 56, y: 60, w: 240, label: 'Clarification loop: the model asks instead of fabricates. Opus → Sonnet → Haiku fallback.' },
             ]}
           />
           <AnnotatedScreen
             palette={p} fontDisplay={fontDisplay} fontMono={fontMono} fontText={fontText}
             num="iii"
-            title="Evidence"
-            blurb="Tapping a citation pulls up the exact photo, transcript span, or drawing markup that supported the sentence. This is the trust surface — the supervisor can audit any claim in two taps without leaving the draft."
+            title="Render"
+            blurb="ReportLab paints the company's existing PDF template with the extracted fields, in Icelandic. The supervisor reviews on the phone, sends to the client. Every report is archived in SQLite so it can be re-rendered, re-formatted, or rolled into a weekly summary later."
             screen={<ScreenEvidence palette={p} fontMono={fontMono} fontText={fontText}/>}
             annotations={[
-              { x: 50, y: 18, w: 220, label: 'Source pane: photo, transcript or plan marker.' },
-              { x: 12, y: 70, w: 230, label: 'The sentence the citation belongs to stays in view.' },
+              { x: 50, y: 18, w: 220, label: 'Same PDF the client already gets — no new format to learn.' },
+              { x: 12, y: 70, w: 240, label: 'Every report retained in SQLite. Re-rendering and aggregation come free.' },
             ]}
           />
         </div>
@@ -259,25 +274,34 @@ function CopilotPage({ palette: p }) {
             lineHeight: 1.0, letterSpacing: '-0.018em',
             margin: '0 0 32px', color: p.ink,
           }}>
-            Four sites are running it.<br/>
+            It works. Now I want<br/>
             <em style={{ color: p.clay, fontWeight: 500 }}>
-              I'm taking on one or two more this year.
+              the next problem like it.
             </em>
           </h2>
           <p style={{ fontSize: 19, lineHeight: 1.6, color: p.mute,
+            maxWidth: 620, margin: '0 0 24px' }}>
+            Dagskýrslutól is in daily production at the company I work for —
+            and the pattern generalises. Voice-first, model-mediated workflows
+            for teams whose work happens away from a desk: fisheries, mining,
+            transport, field service. The interesting question is which
+            workflow earns it next.
+          </p>
+          <p style={{ fontSize: 19, lineHeight: 1.6, color: p.mute,
             maxWidth: 620, margin: '0 0 36px' }}>
-            If you run a project where supervisors are spending an hour a day
-            writing reports — and you'd rather they spent that hour on the
-            morning of the next day — I'd like to hear from you.
+            I'm looking for a role in Iceland integrating AI into companies
+            that don't yet have it — or researching applied AI where the
+            constraints are real (edge devices, weak connectivity, an
+            operator who doesn't want a new tool, just less typing).
           </p>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             <HLButton primary palette={p} fontBody={fontText}
-              href={`mailto:${'hello@eivind.dev'}?subject=${encodeURIComponent('Construction Copilot pilot')}`}>
-              Email about pilots
+              href={`mailto:${'sindrihilmars@gmail.com'}?subject=${encodeURIComponent('Dagskýrslutól / AI integration')}`}>
+              Say hi
             </HLButton>
             <span style={{ fontFamily: fontDisplay, fontStyle: 'italic',
               fontSize: 17, color: p.mute }}>
-              hello@eivind.dev — replies usually within a day.
+              sindrihilmars@gmail.com — Iceland.
             </span>
           </div>
         </div>
@@ -288,9 +312,9 @@ function CopilotPage({ palette: p }) {
           justifyContent: 'space-between', alignItems: 'baseline',
           fontFamily: fontText, fontSize: 11, color: p.mute,
           letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
-          <span>© 2026 — Eivind Kjær</span>
+          <span>© 2026 — Sindri Hilmarsson</span>
           <a href="../index.html#work" style={{ color: p.ink, textDecoration: 'none' }}>
-            Next: Wild Salmon Watch →
+            ← Back to work
           </a>
         </div>
       </section>
