@@ -85,41 +85,33 @@ function resolvePalette(name, dark) {
 }
 
 const PROFILE = {
-  name: 'Sindri Hilmarsson',
-  initials: 'SH',
-  role: 'Engineer · Team lead · AI tinkerer',
-  location: 'Trondheim, NO',
+  name: 'Sindri Már Hilmarsson',
+  initials: 'SMH',
+  role: 'Mechanical Engineer · BS · Edge AI & agents',
+  location: 'Reykjavík, Iceland',
   email: 'sindrihilmars@gmail.com',
+  phone: '+354 696 1902',
   github: 'github.com/sindrihilmars',
-  linkedin: 'in/sindrihilmars',
-  blurb: 'I work between high-voltage hardware and applied machine learning — Formula Student by day, edge models for fish and field reports by night.',
+  linkedin: null,
+  cvHref: 'CV-Sindri-Mar-Hilmarsson-standalone.html',
+  photo: 'Eg.jpg',
+  blurb: 'Mechanical engineer with a deep interest in edge AI and agents. My mechanical-engineering background lets me ground that knowledge in tangible work — and I am looking for a role where bringing AI into real systems is at the centre of the work.',
 };
 
 const PROJECTS = [
   {
     num: '01',
-    name: 'Team Spark — 2026 Season',
+    name: 'Team Spark',
     tag:  'Formula Student',
     role: 'Team Principal',
-    year: '2025—26',
-    status: 'In season',
-    blurb: 'Leading a 38-person student-built electric race car program through design, manufacture and four European events.',
-    bullets: ['Team of 38 across 6 disciplines', '4 events · Hockenheim, Spielberg, Most, Assen', 'Budget +42% YoY'],
+    year: '2023—26',
+    status: 'Spain · 2026',
+    blurb: 'Háskóli Íslands\' Formula Student team. Led production of the team\'s first carbon-fibre monocoque (2024) and the first battery pack since 2017; now leading a 60-person team into competition in Spain with the team\'s first running car since 2019.',
+    bullets: ['Team Principal · 60-person team', 'First carbon-fibre monocoque (production lead)', 'First running car since 2019 → Spain 2026'],
     art: 'circuit',
   },
   {
     num: '02',
-    name: 'High-Voltage Pack',
-    tag:  'Hardware',
-    role: 'Lead Engineer',
-    year: '2025—26',
-    status: 'Production',
-    blurb: 'A 600V lithium pack — cell selection, BMS, liquid cooling, crash structure. The whole stack, drawn cell-up.',
-    bullets: ['600V · 7.2 kWh · LFP', 'Custom BMS, 144 cells monitored', 'Sub-12s thermal runaway containment'],
-    art: 'pack',
-  },
-  {
-    num: '03',
     name: 'Dagskýrslutól',
     tag:  'Applied AI',
     role: 'Builder',
@@ -130,32 +122,22 @@ const PROJECTS = [
     bullets: ['Python · Claude · Whisper · Telegram', 'Clarification loops + Opus→Sonnet→Haiku fallback', 'Multilingual input → Icelandic output'],
     art: 'agent',
   },
-  {
-    num: '04',
-    name: 'Wild Salmon Watch',
-    tag:  'Edge ML',
-    role: 'Builder',
-    year: '2024—25',
-    status: 'Field trial',
-    blurb: 'A solar-powered river camera that uses on-device vision to flag farmed salmon escapees in Norwegian rivers — no cloud, no signal needed.',
-    bullets: ['On-device · runs on a Coral TPU', '92.4% F1 on the Orkla test set', 'Deployed on 3 rivers in Trøndelag'],
-    art: 'salmon',
-  },
 ];
 
 const NOW_ITEMS = [
-  { date: 'this week',  text: 'Stress-testing pack modules ahead of Hockenheim.' },
-  { date: 'this month', text: 'Tuning Construction Copilot\'s evidence retrieval and citation behaviour.' },
-  { date: 'this month', text: 'Writing up the Salmon Watch field data for SINTEF.' },
-  { date: 'reading',    text: 'The Pattern on the Stone — Hillis. Re-reading.' },
+  { date: 'this season', text: 'Leading Team Spark toward Formula Student Spain — first running car since 2019.' },
+  { date: 'this month',  text: 'Finishing my BS in Mechanical Engineering at Háskóli Íslands.' },
+  { date: 'this spring', text: 'Iterating on Dagskýrslutól — multilingual input slices and Gmail drafting next.' },
+  { date: 'looking',     text: 'For a role in Iceland integrating AI into companies, or researching applied AI in industry.' },
 ];
 
 const RESUME = [
-  { period: '2024—', org: 'NTNU',          line: 'MSc Energy & Environmental Engineering, in progress.' },
-  { period: '2025—', org: 'Team Spark',    line: 'Team Principal. 2024–25: Battery Lead.' },
-  { period: '2024—', org: 'Independent',   line: 'Edge ML & AI agents — fisheries and construction.' },
-  { period: '2023',  org: 'Kongsberg Mar.',line: 'Intern, control systems. Drilling automation.' },
-  { period: '2020',  org: 'NTNU',          line: 'Started undergrad. Built a robot lawnmower the same year.' },
+  { period: '2022—26', org: 'Háskóli Íslands',          line: 'BS Mechanical Engineering. AI electives REI505M (model architectures) and RAF622M (training models on a supercomputer in Germany).' },
+  { period: '2023—26', org: 'Team Spark',               line: 'Team Principal (2026 season). Production lead on first carbon-fibre monocoque and first battery pack since 2017.' },
+  { period: '2024—25', org: 'Norðurál',                 line: 'Pot-room operator — anode changing and aluminium tapping with overhead cranes, forklifts, tow trucks.' },
+  { period: '2023—24', org: 'Aðföng',                   line: 'Warehouse worker inside the freezer, assembling orders for Hagkaup and Bónus.' },
+  { period: '2022—23', org: 'Grafa og Grjót',           line: 'Labourer — laying cables and conduit, installing lampposts, site work.' },
+  { period: '2015—19', org: 'Menntaskólinn í Reykjavík',line: 'Stúdentspróf — Eðlisfræðibraut 1 (Physics Track).' },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

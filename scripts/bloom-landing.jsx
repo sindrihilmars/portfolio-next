@@ -122,7 +122,7 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
           <span style={{ fontFamily: fontDisplay, fontStyle: 'italic',
             fontSize: 26, fontWeight: 400, color: p.clay }}>
-            Eivind&nbsp;Kjær
+            Sindri&nbsp;Már&nbsp;Hilmarsson
           </span>
           <span style={{ fontFamily: fontText, fontSize: 11, color: p.mute,
             letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 500 }}>
@@ -152,7 +152,7 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
         <div>
           <div style={{ fontFamily: fontDisplay, fontStyle: 'italic',
             fontSize: 20, color: p.clay, marginBottom: 28 }}>
-            Trondheim, Norway — open for collaborations.
+            Reykjavík, Iceland — open for work.
           </div>
           <h1 style={{
             fontFamily: fontDisplay, fontWeight: 600,
@@ -176,37 +176,44 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
             One careful pass at a time.
           </p>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-            <HLButton primary palette={p} fontBody={fontText}>See the work</HLButton>
-            <HLButton palette={p} fontBody={fontText}>Write to me</HLButton>
+            <HLButton primary palette={p} fontBody={fontText} href="#work">See the work</HLButton>
+            <HLButton palette={p} fontBody={fontText} href={`mailto:${PROFILE.email}`}>Write to me</HLButton>
           </div>
         </div>
 
-        {/* Flat brand portrait — geometric, single ember pull. No gradient. */}
+        {/* Brand portrait — boxed photograph, ember hard-offset, concentric rings. */}
         <div style={{
           position: 'relative', alignSelf: 'stretch', minHeight: 420,
           background: p.cream, border: `1.5px solid ${p.line}`, borderRadius: 20,
           overflow: 'hidden',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
-          {/* The ember disc — sole warmth. */}
-          <div style={{
-            position: 'absolute', width: 240, height: 240, borderRadius: '50%',
-            background: p.moss, top: '18%', left: '22%',
-          }}/>
-          {/* Cool tundra wedge. */}
-          <div style={{
-            position: 'absolute', width: 220, height: 220,
-            background: p.tundra,
-            top: '40%', left: '38%',
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%)',
-          }}/>
-          {/* Concentric rings — ink, 1.5px stroke. */}
-          <svg viewBox="0 0 100 100" style={{ position: 'absolute', inset: 0,
-            width: '100%', height: '100%' }}>
-            {[18,28,38,48].map((r,i) => (
-              <circle key={r} cx="38" cy="48" r={r} fill="none"
-                stroke={p.ink} strokeOpacity={0.18 - i*0.03} strokeWidth="0.25"/>
+          {/* Concentric rings — ink, faint, as decorative ground. */}
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
+            {[20,30,40,50].map((r,i) => (
+              <circle key={r} cx="50" cy="50" r={r} fill="none"
+                stroke={p.ink} strokeOpacity={0.10 - i*0.018} strokeWidth="0.25"/>
             ))}
           </svg>
+          {/* Headshot — framed, ember hard-offset shadow, gently desaturated. */}
+          <div style={{
+            position: 'relative',
+            width: 280, maxWidth: '78%',
+            aspectRatio: '4 / 5',
+            border: `1.5px solid ${p.ink}`,
+            overflow: 'hidden',
+            background: p.tundra,
+            boxShadow: `8px 8px 0 ${p.moss}`,
+          }}>
+            <img src={PROFILE.photo} alt={PROFILE.name}
+              style={{
+                width: '100%', height: '100%', objectFit: 'cover',
+                objectPosition: 'center 25%',
+                filter: 'grayscale(0.15) contrast(1.02)',
+                display: 'block',
+              }}/>
+          </div>
           {/* Spec stamp in the corner. */}
           <div style={{
             position: 'absolute', bottom: 18, right: 22,
@@ -284,7 +291,7 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
             The official<br/>
             <em style={{ color: p.clay, fontWeight: 500 }}>version</em>.
           </h2>
-          <HLButton palette={p} fontBody={fontText}>Download CV · PDF</HLButton>
+          <HLButton palette={p} fontBody={fontText} href={PROFILE.cvHref}>Open full CV →</HLButton>
         </div>
         <ul style={{ listStyle: 'none', padding: 0, margin: 0,
           borderTop: `2px solid ${p.line}` }}>
@@ -321,14 +328,15 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
         <div className="bloom-contact" style={{ display: 'flex', gap: 56, flexWrap: 'wrap',
           fontFamily: fontText, fontSize: 13, letterSpacing: '0.04em' }}>
           {[
-            ['Email',    PROFILE.email],
-            ['GitHub',   PROFILE.github],
-            ['LinkedIn', PROFILE.linkedin],
-          ].map(([k, v]) => (
+            ['Email',    PROFILE.email, `mailto:${PROFILE.email}`],
+            PROFILE.phone && ['Phone', PROFILE.phone, `tel:${PROFILE.phone.replace(/\s+/g, '')}`],
+            PROFILE.github && ['GitHub', PROFILE.github, `https://${PROFILE.github}`],
+            PROFILE.linkedin && ['LinkedIn', PROFILE.linkedin, `https://linkedin.com/${PROFILE.linkedin}`],
+          ].filter(Boolean).map(([k, v, h]) => (
             <div key={k}>
               <div style={{ color: p.mute, fontSize: 11, textTransform: 'uppercase',
                 letterSpacing: '0.14em', marginBottom: 6, fontWeight: 600 }}>{k}</div>
-              <a href="#" style={{ color: p.ink, fontSize: 22, textDecoration: 'underline',
+              <a href={h} style={{ color: p.ink, fontSize: 22, textDecoration: 'underline',
                 textUnderlineOffset: 5, textDecorationColor: p.moss,
                 textDecorationThickness: 2,
                 fontFamily: fontDisplay, fontStyle: 'italic', fontWeight: 400 }}>
@@ -343,13 +351,13 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
           justifyContent: 'space-between', alignItems: 'baseline',
           fontFamily: fontText, fontSize: 11, color: p.mute,
           letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
-          <span>© 2026 — Eivind Kjær</span>
+          <span>© 2026 — Sindri Már Hilmarsson</span>
           <span style={{
             fontFamily: fontDisplay, fontStyle: 'italic', fontWeight: 400,
             textTransform: 'none', letterSpacing: '0', fontSize: 14,
             color: p.clay,
           }}>
-            Made slowly, in Trondheim.
+            Made slowly, in Reykjavík.
           </span>
         </div>
       </section>

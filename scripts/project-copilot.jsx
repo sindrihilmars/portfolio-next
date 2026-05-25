@@ -90,7 +90,7 @@ function CopilotPage({ palette: p }) {
           }}>
             <span style={{ fontFamily: fontDisplay, fontWeight: 600,
               fontSize: 22, color: p.moss, letterSpacing: '-0.01em' }}>
-              03
+              02
             </span>
             <span style={{ fontFamily: fontText, fontSize: 11, color: p.ink,
               textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 600 }}>
