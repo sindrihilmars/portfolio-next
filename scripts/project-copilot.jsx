@@ -171,15 +171,16 @@ function CopilotPage({ palette: p }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 22,
           fontSize: 18, lineHeight: 1.65, color: p.mute, maxWidth: 620 }}>
           <p style={{ margin: 0 }}>
-            I work as a construction worker for a mid-size Icelandic earthworks
-            contractor. Each day the site supervisor writes a daily report for
-            the client — crew on site, machines used, hours worked, weather,
-            what got done, what's blocking tomorrow. It's the audit trail the
-            public infrastructure agencies require, and it has to look the
-            same way every time.
+            I work in construction. A few years back I spent a year laying
+            cable and conduit for a mid-size Icelandic earthworks contractor —
+            and never quite stopped thinking about the daily report their
+            supervisors write at the end of each shift. Crew on site, machines
+            used, hours worked, weather, what got done, what's blocking
+            tomorrow. It's the audit trail the public infrastructure agencies
+            require, and it has to look the same way every time.
           </p>
           <p style={{ margin: 0 }}>
-            That report is the slowest part of the supervisor's day. It's
+            That report is the slowest part of a supervisor's day. It's
             written at the end of a ten-hour shift, from memory, on a laptop
             in the truck. The information already exists in his head — he
             knows exactly what happened. The friction is{' '}
@@ -187,12 +188,17 @@ function CopilotPage({ palette: p }) {
             it into the right shape</em>.
           </p>
           <p style={{ margin: 0 }}>
-            So I built the supervisor a voice copilot. The brief was small:
-            let him say what happened, in Icelandic, the way he'd say it to
-            a colleague. The system turns that into the company's existing
-            PDF — same template, same fields, same look as before. He reviews
-            it on the phone or laptop and sends it. The report stops being
-            a writing task and becomes a talking task.
+            So in my evenings I built him a voice copilot. The brief I set
+            myself was small: let him say what happened, in Icelandic, the
+            way he'd say it to a colleague. The system turns that into the
+            company's existing PDF — same template, same fields, same look
+            as before. He reviews it on the phone or laptop and sends it.
+            The report stops being a writing task and becomes a talking task.
+          </p>
+          <p style={{ margin: 0 }}>
+            It's a side project. Built on my own time, brought back to a
+            previous employer as a pilot, and now running daily on their
+            worksites.
           </p>
         </div>
       </section>
