@@ -85,6 +85,7 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
   const fontDisplay = `'Source Serif 4', Georgia, serif`;
   const fontText    = `'Bricolage Grotesque', system-ui, sans-serif`;
   const fontMono    = `'JetBrains Mono', ui-monospace, monospace`;
+  const [lang, setLang] = useLanguage('en');
 
   const SectionLabel = ({ num, children }) => (
     <div style={{
@@ -129,20 +130,23 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
             — portfolio · 2026
           </span>
         </div>
-        <nav className="bloom-nav" style={{ display: 'flex', gap: 28, fontFamily: fontText, fontSize: 13,
-          letterSpacing: '0.04em' }}>
-          {[
-            { l: 'Work',    h: '#work' },
-            { l: 'Now',     h: '#now' },
-            { l: 'Résumé', h: '#resume' },
-            { l: 'Say hi',  h: '#contact' },
-          ].map((n, i) => (
-            <a key={n.l} href={n.h} className={i === 0 ? 'is-active' : ''}
-              style={{ color: i === 0 ? p.ink : p.mute, textDecoration: 'none' }}>
-              {n.l}
-            </a>
-          ))}
-        </nav>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+          <nav className="bloom-nav" style={{ display: 'flex', gap: 28, fontFamily: fontText, fontSize: 13,
+            letterSpacing: '0.04em' }}>
+            {[
+              { l: 'Work',    h: '#work' },
+              { l: 'Now',     h: '#now' },
+              { l: 'Résumé', h: '#resume' },
+              { l: 'Say hi',  h: '#contact' },
+            ].map((n, i) => (
+              <a key={n.l} href={n.h} className={i === 0 ? 'is-active' : ''}
+                style={{ color: i === 0 ? p.ink : p.mute, textDecoration: 'none' }}>
+                {n.l}
+              </a>
+            ))}
+          </nav>
+          <LangToggle lang={lang} setLang={setLang} palette={p} fontBody={fontText}/>
+        </div>
       </header>
 
       {/* ─── hero ──────────────────────────────────────────────────── */}

@@ -317,9 +317,83 @@ function HLButton({ children, primary, palette, style, fontBody, href }) {
   );
 }
 
+// ─── i18n ─────────────────────────────────────────────────────────────────────
+// Strings can be either a plain string (same in both languages, e.g. "Python")
+// or a { is, en } object. t() resolves to the right language with a fallback
+// chain: requested lang → en → is → empty.
+//
+// To make a string bilingual: replace `'My text'` with `{ is: 'Texti minn',
+// en: 'My text' }`. To make a render site bilingual: replace `value` with
+// `t(value, lang)`. Wherever data flows through shared.jsx (PROFILE, PROJECTS,
+// NOW_ITEMS, RESUME) is a fine place to start.
+function t(value, lang) {
+  if (typeof value === 'string') return value;
+  if (value == null) return '';
+  return value[lang] || value.en || value.is || '';
+}
+
+// Persists choice to localStorage and keeps <html lang> in sync.
+// Default 'en' for now — flip to 'is' once Icelandic copy is complete.
+function useLanguage(defaultLang = 'en') {
+  const [lang, setLangState] = React.useState(() => {
+    try {
+      const saved = localStorage.getItem('portfolio-lang');
+      return saved === 'is' || saved === 'en' ? saved : defaultLang;
+    } catch (_e) { return defaultLang; }
+  });
+  const setLang = React.useCallback((next) => {
+    setLangState(next);
+    try { localStorage.setItem('portfolio-lang', next); } catch (_e) {}
+    if (typeof document !== 'undefined') document.documentElement.lang = next;
+  }, []);
+  React.useEffect(() => {
+    if (typeof document !== 'undefined') document.documentElement.lang = lang;
+  }, [lang]);
+  return [lang, setLang];
+}
+
+// Hard-edged IS / EN toggle for the page chrome. Mirrors the CV's toggle so
+// the two artifacts feel like one system.
+function LangToggle({ lang, setLang, palette, fontBody }) {
+  const p = palette;
+  const fontText = fontBody || `'Bricolage Grotesque', system-ui, sans-serif`;
+  return (
+    <div style={{
+      display: 'inline-flex',
+      border: `1.5px solid ${p.ink}`,
+      background: p.paper,
+      fontFamily: fontText,
+    }}>
+      {['is', 'en'].map((L) => {
+        const active = lang === L;
+        return (
+          <button key={L}
+            type="button"
+            aria-pressed={active}
+            onClick={() => setLang(L)}
+            style={{
+              fontFamily: 'inherit',
+              fontSize: 11, fontWeight: 700,
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              padding: '6px 11px',
+              background: active ? p.ink : 'transparent',
+              color: active ? p.paper : p.ink,
+              border: 'none', cursor: 'pointer', outline: 'none',
+              transition: 'background-color 0.1s linear, color 0.1s linear',
+            }}>
+            {L.toUpperCase()}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 Object.assign(window, {
   HL, PALETTES, resolvePalette,
   PROFILE, PROJECTS, NOW_ITEMS, RESUME,
   ArtBlob, ArtCircuit, ArtPack, ArtAgent, ArtSalmon, ProjectArt,
   HLButton,
+  t, useLanguage, LangToggle,
 });

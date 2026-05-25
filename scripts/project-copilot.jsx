@@ -7,6 +7,7 @@ function CopilotPage({ palette: p }) {
   const fontDisplay = `'Source Serif 4', Georgia, serif`;
   const fontText    = `'Bricolage Grotesque', system-ui, sans-serif`;
   const fontMono    = `'JetBrains Mono', ui-monospace, monospace`;
+  const [lang, setLang] = useLanguage('en');
 
   const SectionLabel = ({ num, children }) => (
     <div style={{
@@ -50,20 +51,23 @@ function CopilotPage({ palette: p }) {
             — portfolio · 2026
           </span>
         </div>
-        <nav className="bloom-nav" style={{ display: 'flex', gap: 28, fontFamily: fontText, fontSize: 13,
-          letterSpacing: '0.04em' }}>
-          {[
-            { l: 'Work',    h: '../index.html#work' },
-            { l: 'Now',     h: '../index.html#now' },
-            { l: 'Résumé', h: '../index.html#resume' },
-            { l: 'Say hi',  h: '../index.html#contact' },
-          ].map((n) => (
-            <a key={n.l} href={n.h}
-              style={{ color: p.mute, textDecoration: 'none' }}>
-              {n.l}
-            </a>
-          ))}
-        </nav>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
+          <nav className="bloom-nav" style={{ display: 'flex', gap: 28, fontFamily: fontText, fontSize: 13,
+            letterSpacing: '0.04em' }}>
+            {[
+              { l: 'Work',    h: '../index.html#work' },
+              { l: 'Now',     h: '../index.html#now' },
+              { l: 'Résumé', h: '../index.html#resume' },
+              { l: 'Say hi',  h: '../index.html#contact' },
+            ].map((n) => (
+              <a key={n.l} href={n.h}
+                style={{ color: p.mute, textDecoration: 'none' }}>
+                {n.l}
+              </a>
+            ))}
+          </nav>
+          <LangToggle lang={lang} setLang={setLang} palette={p} fontBody={fontText}/>
+        </div>
       </header>
 
       {/* ─── breadcrumb ─────────────────────────────────────────────── */}
