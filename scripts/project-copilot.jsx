@@ -138,18 +138,18 @@ function CopilotPage({ palette: p }) {
           display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20,
         }}>
           {[
-            ['Role',    'Builder · solo'],
-            ['Span',    '2025 — ongoing'],
-            ['Stack',   'Python · Claude · Whisper · Telegram'],
-            ['Status',  'Daily production'],
-          ].map(([k, v]) => (
-            <div key={k}>
+            [{ is: 'Hlutverk',        en: 'Role'     }, { is: 'Samsetning',  en: 'Integration' }],
+            [{ is: 'Tímalína',        en: 'Timeline' }, { is: '2026, apríl—', en: 'April 2026—' }],
+            ['Stack',                                    'Python · Claude · Whisper · Telegram'],
+            [{ is: 'Staða verkefnis', en: 'Status'   }, { is: 'Beta Útgáfa',  en: 'Beta release' }],
+          ].map(([k, v], i) => (
+            <div key={i}>
               <div style={{ fontFamily: fontText, fontSize: 10, color: p.mute,
                 textTransform: 'uppercase', letterSpacing: '0.14em',
-                fontWeight: 600, marginBottom: 6 }}>{k}</div>
+                fontWeight: 600, marginBottom: 6 }}>{t(k, lang)}</div>
               <div style={{ fontFamily: fontDisplay, fontWeight: 500,
                 fontSize: 17, color: p.ink, letterSpacing: '-0.01em',
-                lineHeight: 1.35 }}>{v}</div>
+                lineHeight: 1.35 }}>{t(v, lang)}</div>
             </div>
           ))}
         </div>

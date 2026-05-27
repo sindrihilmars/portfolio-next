@@ -123,7 +123,7 @@ const PROJECTS = [
     tag:  'Applied AI',
     role: { is: 'Frumkvöður', en: 'Builder' },
     year: '2026—',
-    status: 'Daily production',
+    status: { is: 'Beta Útgáfa', en: 'Beta release' },
     href: 'work/construction-copilot.html',
     blurb: {
       is: 'Dagskýrslu erindreki byggður í kringum Íslenskt talmál. Verkstjórar senda radd-skilaboð í gegnum Telegram og fá til baka sérsniðna skýrslu, sem þarf síðan að samþykkja. Erindrekinn getur spurt spurninga sem tryggja að allt kemur fram sem þarf að koma fram.',
