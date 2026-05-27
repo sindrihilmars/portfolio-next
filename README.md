@@ -8,6 +8,10 @@ Editorial direction: Source Serif 4 for display + italic asides,
 Bricolage Grotesque for body, JetBrains Mono for chrome. Glacier
 neutrals, ember red as the brand warmth. Soft voice, hard edges.
 
+For a walk-through of how the site works under the hood — what the
+files do, how React + Babel from a CDN render the pages, where to
+edit what — see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
 ## Where it lives
 
 - **Source:** `github.com/sindrihilmars/portfolio-next` (this repo).
