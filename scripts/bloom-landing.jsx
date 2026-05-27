@@ -301,7 +301,7 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
             {t({ is: 'Formleg', en: 'The official' }, lang)}<br/>
             <em style={{ color: p.clay, fontWeight: 500 }}>{t({ is: 'útgáfa', en: 'version' }, lang)}</em>.
           </h2>
-          <HLButton palette={p} fontBody={fontText} href={PROFILE.cvHref}>{t({ is: 'Opna →', en: 'Open full CV →' }, lang)}</HLButton>
+          <HLButton palette={p} fontBody={fontText} href={PROFILE.cvHref}>{t({ is: 'Opna ferilskrá →', en: 'Open full CV →' }, lang)}</HLButton>
         </div>
         <ul style={{ listStyle: 'none', padding: 0, margin: 0,
           borderTop: `2px solid ${p.line}` }}>
@@ -326,26 +326,26 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
         position: 'relative', padding: '120px 80px 96px',
         background: p.cream, scrollMarginTop: 80,
       }}>
-        <SectionLabel num="04">Say hi</SectionLabel>
+        <SectionLabel num="04">{t({ is: 'Hafa samband', en: 'Say hi' }, lang)}</SectionLabel>
         <h2 style={{
           fontFamily: fontDisplay, fontWeight: 600, fontSize: 112,
           lineHeight: 0.98, letterSpacing: '-0.018em',
           margin: '0 0 48px', color: p.ink,
         }}>
-          Let's build<br/>
-          something <em style={{ color: p.moss, fontWeight: 500 }}>weird</em>.
+          {t({ is: 'Kynnumst', en: "Let's get to know" }, lang)}<br/>
+          {t({ is: 'þessu ', en: 'something ' }, lang)}<em style={{ color: p.moss, fontWeight: 500 }}>{t({ is: 'nýja', en: 'new' }, lang)}</em>.
         </h2>
         <div className="bloom-contact" style={{ display: 'flex', gap: 56, flexWrap: 'wrap',
           fontFamily: fontText, fontSize: 13, letterSpacing: '0.04em' }}>
           {[
-            ['Email',    PROFILE.email, `mailto:${PROFILE.email}`],
-            PROFILE.phone && ['Phone', PROFILE.phone, `tel:${PROFILE.phone.replace(/\s+/g, '')}`],
+            [{ is: 'Netfang', en: 'Email' }, PROFILE.email, `mailto:${PROFILE.email}`],
+            PROFILE.phone && [{ is: 'Sími', en: 'Phone' }, PROFILE.phone, `tel:${PROFILE.phone.replace(/\s+/g, '')}`],
             PROFILE.github && ['GitHub', PROFILE.github, `https://${PROFILE.github}`],
             PROFILE.linkedin && ['LinkedIn', PROFILE.linkedin, `https://linkedin.com/${PROFILE.linkedin}`],
           ].filter(Boolean).map(([k, v, h]) => (
-            <div key={k}>
+            <div key={h}>
               <div style={{ color: p.mute, fontSize: 11, textTransform: 'uppercase',
-                letterSpacing: '0.14em', marginBottom: 6, fontWeight: 600 }}>{k}</div>
+                letterSpacing: '0.14em', marginBottom: 6, fontWeight: 600 }}>{t(k, lang)}</div>
               <a href={h} style={{ color: p.ink, fontSize: 22, textDecoration: 'underline',
                 textUnderlineOffset: 5, textDecorationColor: p.moss,
                 textDecorationThickness: 2,
@@ -367,7 +367,7 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
             textTransform: 'none', letterSpacing: '0', fontSize: 14,
             color: p.clay,
           }}>
-            Made slowly, in Reykjavík.
+            {t({ is: 'Gert af krafti.', en: 'Made with force.' }, lang)}
           </span>
         </div>
       </section>
