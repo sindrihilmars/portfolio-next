@@ -237,12 +237,12 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
       {/* ─── selected work ─────────────────────────────────────────── */}
       <section id="work" style={{ position: 'relative', padding: '88px 80px',
         borderBottom: `2px solid ${p.line}`, scrollMarginTop: 80 }}>
-        <SectionLabel num="01">Selected work · 2024—26</SectionLabel>
+        <SectionLabel num="01">{t({ is: 'Valin verkefni', en: 'Selected work' }, lang)}</SectionLabel>
         <div style={{
           display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, rowGap: 64,
         }}>
           {PROJECTS.map((proj, i) => (
-            <BloomCard key={proj.num} proj={proj} palette={p} style={cardStyle}
+            <BloomCard key={proj.num} proj={proj} palette={p} style={cardStyle} lang={lang}
               fonts={{ display: fontDisplay, text: fontText, mono: fontMono }}/>
           ))}
         </div>
@@ -374,7 +374,7 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
   );
 }
 
-function BloomCard({ proj, palette: p, fonts, style }) {
+function BloomCard({ proj, palette: p, fonts, style, lang }) {
   const minimal = style === 'minimal';
   const featured = style === 'featured';
   const artHeight = featured ? 280 : minimal ? 0 : 220;
@@ -402,7 +402,7 @@ function BloomCard({ proj, palette: p, fonts, style }) {
         </span>
         <span style={{ fontFamily: fonts.text, fontSize: 11, color: p.mute,
           letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
-          {proj.tag} · {proj.year}
+          {t(proj.tag, lang)} · {proj.year}
         </span>
       </div>
       <h3 style={{
@@ -410,13 +410,13 @@ function BloomCard({ proj, palette: p, fonts, style }) {
         fontSize: featured ? 44 : 38,
         lineHeight: 1.05, margin: 0, color: p.ink, letterSpacing: '-0.018em',
       }}>
-        <span className="bloom-card-title">{proj.name}</span>
+        <span className="bloom-card-title">{t(proj.name, lang)}</span>
         <span className="bloom-card-arrow" style={{ color: p.clay, marginLeft: 8 }}>→</span>
       </h3>
       <p style={{
         fontSize: 15, lineHeight: 1.6, color: p.mute, margin: 0, maxWidth: 480,
       }}>
-        {proj.blurb}
+        {t(proj.blurb, lang)}
       </p>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 4 }}>
         <span style={{
@@ -428,10 +428,10 @@ function BloomCard({ proj, palette: p, fonts, style }) {
         }}>
           <span style={{ width: 6, height: 6, borderRadius: '50%',
             background: p.moss }}/>
-          {proj.status}
+          {t(proj.status, lang)}
         </span>
         <span style={{ fontFamily: fonts.mono, fontSize: 11, color: p.mute }}>
-          {proj.role}
+          {t(proj.role, lang)}
         </span>
       </div>
     </Tag>

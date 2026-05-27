@@ -103,11 +103,18 @@ const PROJECTS = [
     num: '01',
     name: 'Team Spark',
     tag:  'Formula Student',
-    role: 'Team Principal',
+    role: { is: 'Framleiðslustjóri', en: 'Production Lead' },
     year: '2023—26',
-    status: 'Spain · 2026',
-    blurb: 'Háskóli Íslands\' Formula Student team. Led production of the team\'s first carbon-fibre monocoque (2024) and the first battery pack since 2017; now leading a 60-person team into competition in Spain with the team\'s first running car since 2019.',
-    bullets: ['Team Principal · 60-person team', 'First carbon-fibre monocoque (production lead)', 'First running car since 2019 → Spain 2026'],
+    status: { is: 'Spánn 2026', en: 'Spain 2026' },
+    blurb: {
+      is: 'Formula Student lið Háskóla Íslands. Yfir framleiðslu fyrsta battery pakka Team Spark síðan 2017, leiddi liðið með fyrsta keyrandi bílinn síðan 2019, tók stóran þátt í framleiðslu koltrefja einbolungs 2024, var yfir drifkerfinu 2025 og er á leið út á keppni með 30 manna hóp efnilegra verkfræðinga.',
+      en: 'University of Iceland\'s Formula Student team. Led production of Team Spark\'s first battery pack since 2017, led the team\'s first running car since 2019, played a major role in the 2024 carbon-fibre monocoque, oversaw the drivetrain in 2025 — heading to competition in Spain with a 30-person crew of promising engineers.',
+    },
+    bullets: [
+      { is: 'Framleiðslustjóri', en: 'Production Lead' },
+      { is: 'Fyrsti Batterípakki síðan 2017', en: 'First battery pack since 2017' },
+      { is: 'Fyrsti keyrandi bíll síðan 2019 → Spánn 2026', en: 'First running car since 2019 → Spain 2026' },
+    ],
     art: 'circuit',
   },
   {
