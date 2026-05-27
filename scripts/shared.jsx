@@ -163,12 +163,30 @@ const NOW_ITEMS = [
 ];
 
 const RESUME = [
-  { period: '2022—26', org: 'Háskóli Íslands',          line: 'BS Mechanical Engineering. AI electives REI505M (model architectures) and RAF622M (training models on a supercomputer in Germany).' },
-  { period: '2023—26', org: 'Team Spark',               line: 'Team Principal (2026 season). Production lead on first carbon-fibre monocoque and first battery pack since 2017.' },
-  { period: '2024—25', org: 'Norðurál',                 line: 'Pot-room operator — anode changing and aluminium tapping with overhead cranes, forklifts, tow trucks.' },
-  { period: '2023—24', org: 'Aðföng',                   line: 'Warehouse worker inside the freezer, assembling orders for Hagkaup and Bónus.' },
-  { period: '2022—23', org: 'Grafa og Grjót',           line: 'Labourer — laying cables and conduit, installing lampposts, site work.' },
-  { period: '2015—19', org: 'Menntaskólinn í Reykjavík',line: 'Stúdentspróf — Eðlisfræðibraut 1 (Physics Track).' },
+  {
+    period: '2022—26',
+    org: { is: 'Háskóli Íslands', en: 'University of Iceland' },
+    line: {
+      is: 'BS í vélaverkfræði með áherslu á gervigreind. REI505M (stærðfræðin á bakvið módelin) og RAF622M (þjálfun á módeli fyrir jarðarkönnuna á ofurtölvu í Jülich).',
+      en: 'BS in Mechanical Engineering with a focus on AI. REI505M (the math behind the models) and RAF622M (training a model for earth observation on a supercomputer in Jülich).',
+    },
+  },
+  {
+    period: '2023—26',
+    org: 'Team Spark',
+    line: {
+      is: 'Framleiðslustjóri 2026, Hópstjóri drifkerfis 2025, framleiddi koltrefja monocoque með liðinu 2024.',
+      en: 'Production Lead 2026, drivetrain team lead 2025, produced the carbon-fibre monocoque with the team in 2024.',
+    },
+  },
+  {
+    period: '2024—25',
+    org: 'Norðurál',
+    line: {
+      is: 'Starfsmaður í kerskála, skautskipti og áltaka á brúkrana.',
+      en: 'Pot-room worker — anode changing and aluminium tapping on overhead cranes.',
+    },
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

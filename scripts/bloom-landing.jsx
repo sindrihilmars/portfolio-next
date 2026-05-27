@@ -294,14 +294,14 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
         display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80,
         borderBottom: `2px solid ${p.line}`, scrollMarginTop: 80 }}>
         <div>
-          <SectionLabel num="03">Résumé</SectionLabel>
+          <SectionLabel num="03">{t({ is: 'Ferilskrá', en: 'Résumé' }, lang)}</SectionLabel>
           <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 52,
             lineHeight: 1.05, letterSpacing: '-0.018em',
             margin: '0 0 28px', color: p.ink }}>
-            The official<br/>
-            <em style={{ color: p.clay, fontWeight: 500 }}>version</em>.
+            {t({ is: 'Formleg', en: 'The official' }, lang)}<br/>
+            <em style={{ color: p.clay, fontWeight: 500 }}>{t({ is: 'útgáfa', en: 'version' }, lang)}</em>.
           </h2>
-          <HLButton palette={p} fontBody={fontText} href={PROFILE.cvHref}>Open full CV →</HLButton>
+          <HLButton palette={p} fontBody={fontText} href={PROFILE.cvHref}>{t({ is: 'Opna →', en: 'Open full CV →' }, lang)}</HLButton>
         </div>
         <ul style={{ listStyle: 'none', padding: 0, margin: 0,
           borderTop: `2px solid ${p.line}` }}>
@@ -314,8 +314,8 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
               <span style={{ fontFamily: fontMono, fontSize: 12, color: p.mute,
                 letterSpacing: '0.04em' }}>{r.period}</span>
               <span style={{ fontFamily: fontDisplay, fontWeight: 600,
-                fontSize: 22, color: p.ink, letterSpacing: '-0.01em' }}>{r.org}</span>
-              <span style={{ fontSize: 15, color: p.mute }}>{r.line}</span>
+                fontSize: 22, color: p.ink, letterSpacing: '-0.01em' }}>{t(r.org, lang)}</span>
+              <span style={{ fontSize: 15, color: p.mute }}>{t(r.line, lang)}</span>
             </li>
           ))}
         </ul>
