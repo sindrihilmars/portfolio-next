@@ -121,12 +121,19 @@ const PROJECTS = [
     num: '02',
     name: 'Dagskýrslutól',
     tag:  'Applied AI',
-    role: 'Builder',
-    year: '2025—',
+    role: { is: 'Frumkvöður', en: 'Builder' },
+    year: '2026—',
     status: 'Daily production',
     href: 'work/construction-copilot.html',
-    blurb: 'A voice-first daily-reporting copilot for Icelandic worksites. Supervisors dictate the day; Claude extracts structured fields; ReportLab renders the company\'s existing PDF — in Icelandic, in seconds.',
-    bullets: ['Python · Claude · Whisper · Telegram', 'Clarification loops + Opus→Sonnet→Haiku fallback', 'Multilingual input → Icelandic output'],
+    blurb: {
+      is: 'Dagskýrslu erindreki byggður í kringum Íslenskt talmál. Verkstjórar senda radd-skilaboð í gegnum Telegram og fá til baka sérsniðna skýrslu, sem þarf síðan að samþykkja. Erindrekinn getur spurt spurninga sem tryggja að allt kemur fram sem þarf að koma fram.',
+      en: 'A daily-report agent built around Icelandic speech. Site supervisors send voice messages via Telegram and receive a tailored report to approve. The agent asks clarifying questions to make sure nothing important gets left out.',
+    },
+    bullets: [
+      'Python · Claude · Whisper · Telegram',
+      'Multilingual input → Icelandic output',
+      'Clarification loops + Opus→Sonnet→Haiku fallback',
+    ],
     art: 'agent',
   },
 ];

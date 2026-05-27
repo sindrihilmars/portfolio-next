@@ -98,7 +98,7 @@ function CopilotPage({ palette: p }) {
             </span>
             <span style={{ fontFamily: fontText, fontSize: 11, color: p.ink,
               textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 600 }}>
-              Applied AI · 2025—
+              Applied AI · 2026—
             </span>
           </div>
           <h1 style={{
