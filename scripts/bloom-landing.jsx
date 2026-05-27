@@ -134,7 +134,7 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
           <nav className="bloom-nav" style={{ display: 'flex', gap: 28, fontFamily: fontText, fontSize: 13,
             letterSpacing: '0.04em' }}>
             {[
-              { l: { is: 'Verkefnia',    en: 'Work' },    h: '#work' },
+              { l: { is: 'Verkefni',     en: 'Work' },    h: '#work' },
               { l: { is: 'Í vinnslu',    en: 'Now' },     h: '#now' },
               { l: { is: 'Ferilskrá',    en: 'Résumé' }, h: '#resume' },
               { l: { is: 'Hafa samband', en: 'Say hi' },  h: '#contact' },
@@ -164,24 +164,26 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
             letterSpacing: '-0.018em',
             margin: '0 0 32px', color: p.ink,
           }}>
-            Engineering<br/>
-            between&nbsp;<span style={{
+            {t({ is: 'Gervigreind', en: 'AI' }, lang)}<br/>
+            {t({ is: 'frá ', en: 'from ' }, lang)}<span style={{
               fontStyle: 'italic', fontWeight: 500, color: p.moss,
-            }}>batteries</span><br/>
-            and&nbsp;<span style={{
+            }}>{t({ is: 'þjálfun', en: 'training' }, lang)}</span><br/>
+            {t({ is: 'til ', en: 'to ' }, lang)}<span style={{
               fontStyle: 'italic', fontWeight: 500, color: p.spring,
-            }}>machine&nbsp;learning</span>.
+            }}>{t({ is: 'notkunar', en: 'application' }, lang)}</span>.
           </h1>
           <p style={{
             fontSize: 20, lineHeight: 1.5, maxWidth: 540,
             color: p.mute, margin: '0 0 36px',
           }}>
-            Formula Student by day. Edge models for fish and field reports by night.
-            One careful pass at a time.
+            {t({
+              is: 'Heildstætt verkefnasafn af öllum helstu lífstigum tölvugáfunnar.',
+              en: 'A complete portfolio across every major stage of the AI lifecycle.',
+            }, lang)}
           </p>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-            <HLButton primary palette={p} fontBody={fontText} href="#work">See the work</HLButton>
-            <HLButton palette={p} fontBody={fontText} href={`mailto:${PROFILE.email}`}>Write to me</HLButton>
+            <HLButton primary palette={p} fontBody={fontText} href="#work">{t({ is: 'Sjá verkefni',  en: 'See the work'  }, lang)}</HLButton>
+            <HLButton palette={p} fontBody={fontText} href={`mailto:${PROFILE.email}`}>{t({ is: 'Hafa samband', en: 'Get in touch' }, lang)}</HLButton>
           </div>
         </div>
 

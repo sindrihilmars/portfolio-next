@@ -55,7 +55,7 @@ function CopilotPage({ palette: p }) {
           <nav className="bloom-nav" style={{ display: 'flex', gap: 28, fontFamily: fontText, fontSize: 13,
             letterSpacing: '0.04em' }}>
             {[
-              { l: { is: 'Verkefnia',    en: 'Work' },    h: '../index.html#work' },
+              { l: { is: 'Verkefni',     en: 'Work' },    h: '../index.html#work' },
               { l: { is: 'Í vinnslu',    en: 'Now' },     h: '../index.html#now' },
               { l: { is: 'Ferilskrá',    en: 'Résumé' }, h: '../index.html#resume' },
               { l: { is: 'Hafa samband', en: 'Say hi' },  h: '../index.html#contact' },
