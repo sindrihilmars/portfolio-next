@@ -210,24 +210,22 @@ function CopilotPage({ palette: p }) {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr',
           gap: 80, marginBottom: 56 }}>
           <div>
-            <SectionLabel num="02">How it works</SectionLabel>
+            <SectionLabel num="02">{t({ is: 'Hvernig virkar þetta?', en: 'How does this work?' }, lang)}</SectionLabel>
             <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 44,
               lineHeight: 1.05, letterSpacing: '-0.018em',
               margin: 0, color: p.ink }}>
-              Listen.<br/>
-              Reason.<br/>
-              Render.
+              {t({ is: 'Hlusta.', en: 'Listen.' }, lang)}<br/>
+              {t({ is: 'Spurja.', en: 'Ask.' }, lang)}<br/>
+              {t({ is: 'Setja saman.', en: 'Assemble.' }, lang)}
             </h2>
           </div>
           <div style={{ fontSize: 18, lineHeight: 1.65, color: p.mute,
             maxWidth: 620, alignSelf: 'end' }}>
             <p style={{ margin: 0 }}>
-              The supervisor talks to it through a Telegram bot on his phone
-              or a one-button CLI on the laptop in the truck. Three stages
-              do the work: a voice layer, a reasoning layer, and a rendering
-              layer. The Icelandic PDF that comes out the other end is byte-
-              compatible with what the company already submits — clients
-              shouldn't even notice the workflow changed.
+              {t({
+                is: "Verkstjóri talar við erindrekann í gegnum Telegram. Erindrekinn er talmenni sem hægt er að leita af og finna á Telegram. Eftir að hafa fengið aðgang að talmenninu þá eru raddskilaboð tekin upp og erindrekinn spyr spurninga í textaformi þangað til skýrslan er útfyllt. Erindrekinn notar Whisper frá OpenAI til að breyta raddskilaboðum í texta og Opus 4.7 til að breyta textanum í rétt uppsetta skýrslu samkvæmt þeim reglum sem hann er bundinn við, eftir þetta er skýrslan framkölluð sem pdf með Python, pdf skýrslan er send af erindrekanum í gegnum Telegram þar sem hægt er að opna skýrsluna, skoða hana og ákveða hvort hún verði notuð eða ekki. Skýrslunum er safnað saman í gagnabanka og þegar kemur að því að skila skýrslum til þriðja aðila, t.d. vikulega, þá er skýrslur vikunnar settar í innhólf viðkomandi sem 'draft' þar sem hægt er að fara aftur yfir áður en skýrslurnar eru sendar.",
+                en: "The supervisor talks to the agent through Telegram. The agent is a chatbot you can search for and find on Telegram. After getting access, the supervisor records voice messages and the agent asks follow-up questions in text until the report is filled out. Whisper (from OpenAI) converts voice to text; Opus 4.7 turns the text into a properly structured report following the rules it's bound by; the report is then rendered as a PDF with Python and delivered back through Telegram, where the supervisor can open it, review it, and decide whether to use it. Reports are collected in a database, and when it's time to submit them to a third party — say, weekly — the week's reports are placed as 'drafts' in the recipient's inbox, where they can be reviewed once more before sending.",
+              }, lang)}
             </p>
           </div>
         </div>
