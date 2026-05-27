@@ -78,7 +78,7 @@ function CopilotPage({ palette: p }) {
         letterSpacing: '0.04em',
         display: 'flex', gap: 10, alignItems: 'center',
       }}>
-        <a href="../index.html#work" style={{ color: p.mute, textDecoration: 'none' }}>← Work</a>
+        <a href="../index.html#work" style={{ color: p.mute, textDecoration: 'none' }}>{t({ is: '← Verkefni', en: '← Work' }, lang)}</a>
         <span style={{ color: p.line }}>/</span>
         <span style={{ color: p.ink }}>Dagskýrslutól</span>
       </div>
@@ -98,7 +98,7 @@ function CopilotPage({ palette: p }) {
             </span>
             <span style={{ fontFamily: fontText, fontSize: 11, color: p.ink,
               textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 600 }}>
-              Applied AI · 2026—
+              {t({ is: 'Gervigreind í notkun 2026', en: 'AI in use 2026' }, lang)}
             </span>
           </div>
           <h1 style={{
@@ -114,17 +114,20 @@ function CopilotPage({ palette: p }) {
             letterSpacing: '0.05em', textTransform: 'uppercase',
             fontWeight: 600, margin: '0 0 22px',
           }}>
-            A daily-reporting copilot for Icelandic worksites.
+            {t({
+              is: 'Erindreki fyrir verkstjóra sem vilja vera á verkstaðnum.',
+              en: 'An agent for site supervisors who\'d rather be on the worksite.',
+            }, lang)}
           </p>
           <p style={{
             fontFamily: fontDisplay, fontStyle: 'italic',
             fontSize: 24, fontWeight: 400, lineHeight: 1.4,
             color: p.clay, maxWidth: 580, margin: 0,
           }}>
-            Site supervisors dictate the day from the worksite. Claude reads
-            the recording, asks the right follow-ups, and renders a finished
-            PDF in the company's own report format — before the supervisor
-            gets in the car to drive home.
+            {t({
+              is: 'Verkstjórar greina frá deginum í töluðu máli. Claude notar viðeigandi upplýsingar til að spyrja réttu spurninganna og fylla inn í sérsniðna skýrslu fyrirtækisins. Skilar lesanlegu PDF skjali sem verkstjóri samþykkir — og sleppir því að koma við á skrifstofunni.',
+              en: 'Supervisors describe the day in plain speech. Claude uses the relevant context to ask the right follow-ups and fills in the company\'s own report. Out comes a readable PDF for the supervisor to approve — and they skip the trip back to the office.',
+            }, lang)}
           </p>
         </div>
 
