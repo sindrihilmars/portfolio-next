@@ -166,46 +166,39 @@ function CopilotPage({ palette: p }) {
         display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80,
         borderBottom: `2px solid ${p.line}` }}>
         <div>
-          <SectionLabel num="01">The brief</SectionLabel>
+          <SectionLabel num="01">{t({ is: 'Í stuttu máli', en: 'In brief' }, lang)}</SectionLabel>
           <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 44,
             lineHeight: 1.05, letterSpacing: '-0.018em',
             margin: 0, color: p.ink }}>
-            The report<br/>
-            is the last hour<br/>
-            of every day.
+            {t({ is: 'Skýrslan', en: 'The report' }, lang)}<br/>
+            {t({ is: 'sem á sér ekki sinn tíma.', en: 'no one has time for.' }, lang)}
           </h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 22,
           fontSize: 18, lineHeight: 1.65, color: p.mute, maxWidth: 620 }}>
           <p style={{ margin: 0 }}>
-            I work in construction. A few years back I spent a year laying
-            cable and conduit for a mid-size Icelandic earthworks contractor —
-            and never quite stopped thinking about the daily report their
-            supervisors write at the end of each shift. Crew on site, machines
-            used, hours worked, weather, what got done, what's blocking
-            tomorrow. It's the audit trail the public infrastructure agencies
-            require, and it has to look the same way every time.
+            {t({
+              is: 'Hvenær á að gera allar þessar litlu ómerkilegu skýrslur? Á skrifstofunni? Heima í fartölvunni? Ráða manneskju? Afhverju ekki bara eftir að þú hoppar upp í bílinn og áður en þú keyrir heim. Með núverandi tækni er einfalt að búa til sérhæfðan aðstoðarmann sem gerir þér kleyft að gera einföld verkefni án þess að þau taki tíma frá persónulega lífinu eða krefjist sérstakrar ferðar upp á skrifstofu. Og þetta er hræódýrt, ótrúlega skalanlegt og einfalt að setja upp.',
+              en: 'When are all these tiny, low-priority reports meant to get done? At the office? At home on the laptop? By a hired hand? Why not just after you climb into the truck — before you drive home? With today\'s tools it\'s straightforward to build a specialised assistant that lets you handle the small things without them eating into your personal time or forcing a trip to the office. And it\'s dirt cheap, remarkably scalable, and quick to set up.',
+            }, lang)}
           </p>
           <p style={{ margin: 0 }}>
-            That report is the slowest part of a supervisor's day. It's
-            written at the end of a ten-hour shift, from memory, on a laptop
-            in the truck. The information already exists in his head — he
-            knows exactly what happened. The friction is{' '}
-            <em style={{ fontFamily: fontDisplay, color: p.ink }}>typing
-            it into the right shape</em>.
+            {t({
+              is: 'Yfirmaður minn fékk mig lengi vel til að gera þetta fyrir sig og borgaði mér fyrir. Svo í staðinn byggði ég fyrir hann einfaldan erindreka til að gera það sem ég gerði áður fyrr og hefur hann nú leyst mig af.',
+              en: 'For a long stretch my boss had me writing these reports for him and paid me to do it. So I built him a simple agent that does what I used to — and it\'s taken over the job.',
+            }, lang)}
           </p>
           <p style={{ margin: 0 }}>
-            So in my evenings I built him a voice copilot. The brief I set
-            myself was small: let him say what happened, in Icelandic, the
-            way he'd say it to a colleague. The system turns that into the
-            company's existing PDF — same template, same fields, same look
-            as before. He reviews it on the phone or laptop and sends it.
-            The report stops being a writing task and becomes a talking task.
+            {t({
+              is: 'Skilyrðið var að þessi erindreki gæti tekið við fyrirmælum á íslensku og að ekki þyrfti að rífa upp lyklaborðið, að niðurstöðurnar væru fullnægjandi í yfir 90% tilfella og að skýrsla færi aldrei neitt áður en hún hefði verið samþykkt tvisvar.',
+              en: 'The conditions were these: the agent had to take instructions in Icelandic, never require a keyboard, deliver a satisfactory result in over 90% of cases, and never send a report until it had been approved twice.',
+            }, lang)}
           </p>
           <p style={{ margin: 0 }}>
-            It's a side project. Built on my own time, brought back to a
-            previous employer as a pilot, and now running daily on their
-            worksites.
+            {t({
+              is: 'Þetta aukaverkefni er einfalt í uppsetningu og notkun og bíður eftir því að vera innleitt í fleiri sambærilega verkferla.',
+              en: 'It\'s a side project. Simple to deploy, simple to operate — and waiting to be applied to more workflows like it.',
+            }, lang)}
           </p>
         </div>
       </section>
