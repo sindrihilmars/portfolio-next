@@ -127,21 +127,21 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
           </span>
           <span style={{ fontFamily: fontText, fontSize: 11, color: p.mute,
             letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 500 }}>
-            — portfolio · 2026
+            {t({ is: '— verkefnasafn 2026', en: '— portfolio · 2026' }, lang)}
           </span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
           <nav className="bloom-nav" style={{ display: 'flex', gap: 28, fontFamily: fontText, fontSize: 13,
             letterSpacing: '0.04em' }}>
             {[
-              { l: 'Work',    h: '#work' },
-              { l: 'Now',     h: '#now' },
-              { l: 'Résumé', h: '#resume' },
-              { l: 'Say hi',  h: '#contact' },
+              { l: { is: 'Verkefnia',    en: 'Work' },    h: '#work' },
+              { l: { is: 'Í vinnslu',    en: 'Now' },     h: '#now' },
+              { l: { is: 'Ferilskrá',    en: 'Résumé' }, h: '#resume' },
+              { l: { is: 'Hafa samband', en: 'Say hi' },  h: '#contact' },
             ].map((n, i) => (
-              <a key={n.l} href={n.h} className={i === 0 ? 'is-active' : ''}
+              <a key={n.h} href={n.h} className={i === 0 ? 'is-active' : ''}
                 style={{ color: i === 0 ? p.ink : p.mute, textDecoration: 'none' }}>
-                {n.l}
+                {t(n.l, lang)}
               </a>
             ))}
           </nav>

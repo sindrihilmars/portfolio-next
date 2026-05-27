@@ -48,21 +48,21 @@ function CopilotPage({ palette: p }) {
           </span>
           <span style={{ fontFamily: fontText, fontSize: 11, color: p.mute,
             letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 500 }}>
-            — portfolio · 2026
+            {t({ is: '— verkefnasafn 2026', en: '— portfolio · 2026' }, lang)}
           </span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
           <nav className="bloom-nav" style={{ display: 'flex', gap: 28, fontFamily: fontText, fontSize: 13,
             letterSpacing: '0.04em' }}>
             {[
-              { l: 'Work',    h: '../index.html#work' },
-              { l: 'Now',     h: '../index.html#now' },
-              { l: 'Résumé', h: '../index.html#resume' },
-              { l: 'Say hi',  h: '../index.html#contact' },
+              { l: { is: 'Verkefnia',    en: 'Work' },    h: '../index.html#work' },
+              { l: { is: 'Í vinnslu',    en: 'Now' },     h: '../index.html#now' },
+              { l: { is: 'Ferilskrá',    en: 'Résumé' }, h: '../index.html#resume' },
+              { l: { is: 'Hafa samband', en: 'Say hi' },  h: '../index.html#contact' },
             ].map((n) => (
-              <a key={n.l} href={n.h}
+              <a key={n.h} href={n.h}
                 style={{ color: p.mute, textDecoration: 'none' }}>
-                {n.l}
+                {t(n.l, lang)}
               </a>
             ))}
           </nav>
