@@ -226,7 +226,7 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
             fontFamily: fontMono, fontSize: 10, color: p.ink,
             letterSpacing: '0.1em', textTransform: 'uppercase',
           }}>
-            No. 0007 · Spring 26
+            Reykjavík 2026
           </div>
         </div>
       </section>
