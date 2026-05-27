@@ -139,10 +139,27 @@ const PROJECTS = [
 ];
 
 const NOW_ITEMS = [
-  { date: 'this season', text: 'Leading Team Spark toward Formula Student Spain — first running car since 2019.' },
-  { date: 'this month',  text: 'Finishing my BS in Mechanical Engineering at Háskóli Íslands.' },
-  { date: 'this spring', text: 'Iterating on Dagskýrslutól — multilingual input slices and Gmail drafting next.' },
-  { date: 'looking',     text: 'For a role in Iceland integrating AI into companies, or researching applied AI in industry.' },
+  {
+    date: { is: 'Þetta tímabil', en: 'this season' },
+    text: {
+      is: 'Taka Team Spark út á Formula Student Spain með keyrandi bíl.',
+      en: 'Taking Team Spark to Formula Student Spain — with a running car.',
+    },
+  },
+  {
+    date: { is: 'Þennan mánuð', en: 'this month' },
+    text: {
+      is: 'Koma dagskýrslu erindreka í notkun.',
+      en: 'Getting Dagskýrslutól into use.',
+    },
+  },
+  {
+    date: { is: 'Leita af', en: 'looking' },
+    text: {
+      is: 'tækifærum til að innleiða gervigreind inn í Íslenskt atvinnulíf.',
+      en: 'for opportunities to bring AI into Icelandic industry.',
+    },
+  },
 ];
 
 const RESUME = [

@@ -253,12 +253,13 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
         display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80,
         borderBottom: `2px solid ${p.line}`, scrollMarginTop: 80 }}>
         <div>
-          <SectionLabel num="02">Now</SectionLabel>
+          <SectionLabel num="02">{t({ is: 'Í vinnslu', en: 'Now' }, lang)}</SectionLabel>
           <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 52,
             lineHeight: 1.05, letterSpacing: '-0.018em',
             margin: '0 0 16px', color: p.ink }}>
-            What I'm <em style={{ color: p.clay, fontWeight: 500 }}>actually</em><br/>
-            working on.
+            {t({ is: 'Hvað er í gangi ', en: "What's going on " }, lang)}
+            <em style={{ color: p.clay, fontWeight: 500 }}>{t({ is: 'akkúrat', en: 'right' }, lang)}</em><br/>
+            {t({ is: 'núna?', en: 'now?' }, lang)}
           </h2>
           <p style={{ color: p.mute, fontSize: 15, maxWidth: 380, margin: 0 }}>
             Updated whenever the answer changes. No dashboard, no streaks — just the
@@ -276,12 +277,12 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
               <span style={{ fontFamily: fontText, fontSize: 11, color: p.mute,
                 letterSpacing: '0.14em', textTransform: 'uppercase',
                 fontWeight: 600 }}>
-                {it.date}
+                {t(it.date, lang)}
               </span>
               <span style={{ fontSize: 19, lineHeight: 1.45,
                 fontFamily: fontDisplay, fontStyle: 'italic',
                 fontWeight: 400, color: p.ink }}>
-                {it.text}
+                {t(it.text, lang)}
               </span>
             </li>
           ))}
