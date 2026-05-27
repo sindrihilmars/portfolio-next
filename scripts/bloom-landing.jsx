@@ -156,7 +156,10 @@ function BloomLanding({ palette: p, cardStyle = 'default' }) {
         <div>
           <div style={{ fontFamily: fontDisplay, fontStyle: 'italic',
             fontSize: 20, color: p.clay, marginBottom: 28 }}>
-            Reykjavík, Iceland — open for work.
+            {t({
+              is: 'Reykjavík, Ísland — opinn fyrir verkefnum.',
+              en: 'Reykjavík, Iceland — open for projects.',
+            }, lang)}
           </div>
           <h1 style={{
             fontFamily: fontDisplay, fontWeight: 600,
