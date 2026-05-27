@@ -158,7 +158,7 @@ function CopilotPage({ palette: p }) {
       {/* ─── hero artwork — wide flat plane ─────────────────────────── */}
       <section style={{ position: 'relative', padding: '64px 80px',
         borderBottom: `2px solid ${p.line}` }}>
-        <CopilotHero palette={p} fontMono={fontMono}/>
+        <CopilotHero palette={p} fontMono={fontMono} lang={lang}/>
       </section>
 
       {/* ─── 01 — The brief ─────────────────────────────────────────── */}
@@ -336,7 +336,7 @@ function CopilotPage({ palette: p }) {
 }
 
 // ─── hero artwork ────────────────────────────────────────────────────────────
-function CopilotHero({ palette: p, fontMono }) {
+function CopilotHero({ palette: p, fontMono, lang }) {
   // A flat plane composition: ember disc (the agent), three input shapes
   // converging into it (photo, voice, plan), one output stream leaving it.
   return (
@@ -390,17 +390,17 @@ function CopilotHero({ palette: p, fontMono }) {
       <div style={{ position: 'absolute', top: 22, left: 28,
         fontFamily: fontMono, fontSize: 11, color: p.ink,
         letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>
-        Evidence in
+        {t({ is: 'Raddskilaboð inn', en: 'Voice messages in' }, lang)}
       </div>
       <div style={{ position: 'absolute', top: 22, right: 28,
         fontFamily: fontMono, fontSize: 11, color: p.ink,
         letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>
-        Draft out
+        {t({ is: 'Skýrslan kemur út', en: 'The report comes out' }, lang)}
       </div>
       <div style={{ position: 'absolute', bottom: 22, left: 28,
         fontFamily: fontMono, fontSize: 11, color: p.mute,
         letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-        Fig. 01 — system at a glance
+        {t({ is: 'Mynd. 01 — kerfið í hnotskurn.', en: 'Fig. 01 — the system in a nutshell.' }, lang)}
       </div>
     </div>
   );
