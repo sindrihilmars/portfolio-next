@@ -10,7 +10,9 @@ neutrals, ember red as the brand warmth. Soft voice, hard edges.
 
 For a walk-through of how the site works under the hood — what the
 files do, how React + Babel from a CDN render the pages, where to
-edit what — see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+edit what — see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). For a
+voice / style brief on how Sindri writes (useful when drafting new
+copy in his register), see [`docs/WRITING_STYLE.md`](docs/WRITING_STYLE.md).
 
 ## Where it lives
 
@@ -32,6 +34,9 @@ edit what — see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 │                                             #   toggle, A4 print layout,
 │                                             #   for emailing to employers)
 ├── Eg.jpg                                    # headshot used in the hero
+├── docs/
+│   ├── ARCHITECTURE.md                       # how the site is wired
+│   └── WRITING_STYLE.md                      # Sindri's voice / editorial brief
 ├── highlands/
 │   ├── colors_and_type.css                   # tokens (color, type, spacing,
 │   │                                         #   radii, shadows, buttons)
@@ -77,10 +82,17 @@ page and drop the Babel script tag.
   anchored with `id="work"`, `id="now"`, `id="resume"`, `id="contact"`
   so the nav links scroll smoothly.
 - **Case study**: `scripts/project-copilot.jsx`. The annotated screens
-  in §02 (labelled Listen / Reason / Render) are still geometric
-  placeholders — `ScreenIngest`, `ScreenDraft`, `ScreenEvidence` —
-  meant to be replaced with real screenshots when available (a
-  Telegram conversation and a sample PDF would land well).
+  in §02 (labelled *Listen / Ask / Assemble* / *Hlusta / Spurja / Setja
+  saman*) are still geometric placeholders — `ScreenIngest`,
+  `ScreenDraft`, `ScreenEvidence` — meant to be replaced with real
+  screenshots when available (a Telegram conversation and a sample
+  PDF would land well).
+- **Bilingual content**: most translatable strings live as `{ is, en }`
+  objects routed through `t(value, lang)` in `scripts/shared.jsx`. The
+  `useLanguage()` hook (also in `shared.jsx`) holds the current
+  language, persists it to `localStorage`, and syncs `<html lang>`. To
+  translate a plain English string, swap it for an `{ is, en }` object
+  in the data file or the JSX render site.
 - **Brand tokens**: `highlands/colors_and_type.css`. Don't change
   ember red (`--primary-500`) — the system locks it.
 - **CV**: the standalone HTML at the repo root is self-contained
@@ -90,18 +102,35 @@ page and drop the Babel script tag.
 
 ## Status (May 2026)
 
-Real, from the CV:
-- Identity, contact, headshot, CV link, languages.
-- `PROJECTS`: Team Spark (HÍ Formula Student) and Dagskýrslutól (the
-  case study).
-- `RESUME` and `NOW_ITEMS` populated from CV data.
+**Bilingual.** IS / EN toggle is wired across both pages; selection
+persists across navigation via `localStorage`. Default language is
+currently English — the plan is to flip to Icelandic-default once the
+remaining English-only blocks have IS copy. To flip: change
+`useLanguage('en')` → `useLanguage('is')` in `BloomLanding` and
+`CopilotPage`.
 
-Still placeholder / aspirational:
+Real, in Sindri's own voice across both languages:
+- Landing hero, project cards (Team Spark + Dagskýrslutól), Now items,
+  Résumé rows (trimmed to three most-recent), contact + footer.
+- Case-study breadcrumb, article header (Dagskýrslutól, *AI in use
+  2026* / *Gervigreind í notkun 2026*), meta card (Role / Timeline /
+  Status as *Beta release* / *Beta Útgáfa*), hero artwork labels, §01
+  *In brief* (full prose), §02 *How it works* heading + intro, §02
+  outro section.
+
+Still English-only — to be translated next:
+- The three annotated screens in §02 (Listen / Ask / Assemble) — each
+  has a blurb and two annotations.
+- A few small bits: the Now-section subtitle paragraph
+  ("Updated whenever the answer changes…"), the Dagskýrslutól card
+  bullets, and the meta-card *Stack* row.
+
+Still placeholder / aspirational across both languages:
 - Case-study screens (§02) are abstract geometry, not real product
-  shots.
+  shots. The agent rendering as voice → AI → PDF is told in prose;
+  the SVG still shows three input shapes from the older multi-modal
+  framing.
 - No Team Spark case-study page yet — the landing card has no `href`.
-- The portfolio is English-only; the CV is bilingual (IS/EN). Adding a
-  language toggle is a future direction.
 
 ## License
 
