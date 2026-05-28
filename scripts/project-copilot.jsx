@@ -272,40 +272,42 @@ function CopilotPage({ palette: p }) {
       {/* ─── outro / CTA ────────────────────────────────────────────── */}
       <section style={{ position: 'relative', padding: '120px 80px 96px' }}>
         <div style={{ maxWidth: 760 }}>
-          <SectionLabel num="—">What's next</SectionLabel>
+          <SectionLabel num="—">{t({ is: 'Hvað er næst', en: "What's next" }, lang)}</SectionLabel>
           <h2 style={{
             fontFamily: fontDisplay, fontWeight: 600, fontSize: 64,
             lineHeight: 1.0, letterSpacing: '-0.018em',
             margin: '0 0 32px', color: p.ink,
           }}>
-            It works. Now I want<br/>
+            {t({ is: 'Þetta virkar,', en: 'It works.' }, lang)}<br/>
             <em style={{ color: p.clay, fontWeight: 500 }}>
-              the next problem like it.
+              {t({
+                is: 'núna leita ég af öðrum vandamálum líkum þessu.',
+                en: 'Looking for the next problem like it.',
+              }, lang)}
             </em>
           </h2>
           <p style={{ fontSize: 19, lineHeight: 1.6, color: p.mute,
             maxWidth: 620, margin: '0 0 24px' }}>
-            Dagskýrslutól is in daily production at the company I work for —
-            and the pattern generalises. Voice-first, model-mediated workflows
-            for teams whose work happens away from a desk: fisheries, mining,
-            transport, field service. The interesting question is which
-            workflow earns it next.
+            {t({
+              is: 'Dagskýrslutólið er í daglegri notkun í fyrirtækinu sem ég vinn hjá — og það er auðvelt að aðlaga það að öðrum aðstæðum. Raddskilaboð → Gervigreind → sérsniðin skýrsla, fyrir þá sem ættu ekki að þurfa að koma við á skrifstofunni. Fiskiðnaður, álver, eftirlit — spurningin er hvert fer þetta næst.',
+              en: 'Dagskýrslutól is in daily use at the company I work for — and it\'s easy to adapt to other contexts. Voice messages → AI → tailored report, for people who shouldn\'t have to come by the office at all. Fisheries, aluminium smelters, inspections — the question is where it goes next.',
+            }, lang)}
           </p>
           <p style={{ fontSize: 19, lineHeight: 1.6, color: p.mute,
             maxWidth: 620, margin: '0 0 36px' }}>
-            I'm looking for a role in Iceland integrating AI into companies
-            that don't yet have it — or researching applied AI where the
-            constraints are real (edge devices, weak connectivity, an
-            operator who doesn't want a new tool, just less typing).
+            {t({
+              is: 'Ég leita af tækifærum á Íslandi til að innleiða gervigreind inn í fyrirtæki sem vita ekki hvar þau eiga að byrja — og að spennandi rannsóknarverkefnum þar sem framlína gervigreindarinnar er könnuð.',
+              en: 'I\'m looking for opportunities in Iceland to bring AI into companies that don\'t know where to start — and for exciting research projects exploring the frontier of AI.',
+            }, lang)}
           </p>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
             <HLButton primary palette={p} fontBody={fontText}
               href={`mailto:${'sindrihilmars@gmail.com'}?subject=${encodeURIComponent('Dagskýrslutól / AI integration')}`}>
-              Say hi
+              {t({ is: 'Hafa samband', en: 'Get in touch' }, lang)}
             </HLButton>
             <span style={{ fontFamily: fontDisplay, fontStyle: 'italic',
               fontSize: 17, color: p.mute }}>
-              sindrihilmars@gmail.com — Iceland.
+              {t({ is: 'sindrihilmars@gmail.com — Ísland.', en: 'sindrihilmars@gmail.com — Iceland.' }, lang)}
             </span>
           </div>
         </div>
@@ -316,9 +318,9 @@ function CopilotPage({ palette: p }) {
           justifyContent: 'space-between', alignItems: 'baseline',
           fontFamily: fontText, fontSize: 11, color: p.mute,
           letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
-          <span>© 2026 — Sindri Hilmarsson</span>
+          <span>© 2026 — Sindri Már Hilmarsson</span>
           <a href="../index.html#work" style={{ color: p.ink, textDecoration: 'none' }}>
-            ← Back to work
+            {t({ is: '← Fleiri Verkefni', en: '← More work' }, lang)}
           </a>
         </div>
       </section>
