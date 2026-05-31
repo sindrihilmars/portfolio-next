@@ -203,14 +203,50 @@ function CopilotPage({ palette: p }) {
         </div>
       </section>
 
-      {/* ─── 02 — What we built ─────────────────────────────────────── */}
+      {/* ─── 02 — Why Icelandic speech changes the problem ──────────── */}
+      <section style={{ position: 'relative', padding: '80px 80px 88px',
+        display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80,
+        borderBottom: `2px solid ${p.line}` }}>
+        <div>
+          <SectionLabel num="02">{t({ is: 'Íslenskt talmál', en: 'Icelandic speech' }, lang)}</SectionLabel>
+          <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 44,
+            lineHeight: 1.05, letterSpacing: '-0.018em',
+            margin: 0, color: p.ink }}>
+            {t({ is: 'Talmálið', en: 'The language' }, lang)}<br/>
+            {t({ is: 'er hluti af vörunni.', en: 'is part of the product.' }, lang)}
+          </h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 22,
+          fontSize: 18, lineHeight: 1.65, color: p.mute, maxWidth: 620 }}>
+          <p style={{ margin: 0 }}>
+            {t({
+              is: 'Þetta er ekki enskur hugbúnaður með íslenskum hnöppum. Erfiðasti hluti verkefnisins er íslenskt talmál úr raunverulegu umhverfi: staðarnöfn, vélaheiti, nöfn starfsmanna, hálfar setningar, leiðréttingar og orðalag sem á fullkomlega heima á verkstað en ekki endilega í hreinni skýrslu.',
+              en: 'This is not an English-first tool with Icelandic labels. The hard part is Icelandic field speech: place names, machine names, worker names, half-sentences, corrections, and phrasing that makes perfect sense on site but does not arrive as a clean form submission.',
+            }, lang)}
+          </p>
+          <p style={{ margin: 0 }}>
+            {t({
+              is: 'Í góðri upptöku segir verkstjóri kannski nákvæmlega það sem þarf. Í venjulegri upptöku segir hann líka eitthvað í framhjáhlaupi, gleymir einu atriði, notar styttingar eða breytir um skoðun í miðri setningu. Kerfið þarf að finna skýrsluna inni í talinu án þess að þykjast vita meira en það veit.',
+              en: 'On a good recording the supervisor may say exactly what the report needs. On a normal recording he also says something in passing, forgets one detail, uses shorthand, or changes his mind mid-sentence. The system has to find the report inside the speech without pretending to know more than it does.',
+            }, lang)}
+          </p>
+          <p style={{ margin: 0 }}>
+            {t({
+              is: 'Þess vegna er samhengi hluti af kerfinu. Hvaða verkstaður er þetta? Hvaða vélar koma til greina? Hvernig lítur dagskýrsla fyrirtækisins út? Hvaða upplýsingar þarf að fylla út áður en hægt er að gera PDF? Þessar skorður gera erindrekann minna almennan og miklu nytsamlegri.',
+              en: 'Context becomes part of the system. Which site is this? Which machines are possible? What does this company’s daily report look like? Which fields have to be filled before a PDF can be trusted? Those constraints make the agent less general and much more useful.',
+            }, lang)}
+          </p>
+        </div>
+      </section>
+
+      {/* ─── 03 — What we built ─────────────────────────────────────── */}
       <section style={{ position: 'relative', padding: '80px 80px 96px',
         background: p.cream,
         borderBottom: `2px solid ${p.line}` }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr',
           gap: 80, marginBottom: 56 }}>
           <div>
-            <SectionLabel num="02">{t({ is: 'Hvernig virkar þetta?', en: 'How does this work?' }, lang)}</SectionLabel>
+            <SectionLabel num="03">{t({ is: 'Hvernig virkar þetta?', en: 'How does this work?' }, lang)}</SectionLabel>
             <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 44,
               lineHeight: 1.05, letterSpacing: '-0.018em',
               margin: 0, color: p.ink }}>
@@ -266,6 +302,80 @@ function CopilotPage({ palette: p }) {
               { x: 12, y: 70, w: 240, label: 'Archive first. Re-rendering, weekly drafts, and evaluation data come later.' },
             ]}
           />
+        </div>
+      </section>
+
+      {/* ─── 04 — What I built ──────────────────────────────────────── */}
+      <section style={{ position: 'relative', padding: '80px 80px 88px',
+        display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80,
+        borderBottom: `2px solid ${p.line}` }}>
+        <div>
+          <SectionLabel num="04">{t({ is: 'Það sem ég byggði', en: 'What I built' }, lang)}</SectionLabel>
+          <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 44,
+            lineHeight: 1.05, letterSpacing: '-0.018em',
+            margin: 0, color: p.ink }}>
+            {t({ is: 'Enda á milli,', en: 'End to end,' }, lang)}<br/>
+            {t({ is: 'ekki bara kall í módel.', en: 'not just a model call.' }, lang)}
+          </h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 22,
+          fontSize: 18, lineHeight: 1.65, color: p.mute, maxWidth: 620 }}>
+          <p style={{ margin: 0 }}>
+            {t({
+              is: 'Ég byggði símaflæðið, raddskilaboðin, umritunina, útdráttinn, spurningalykkjuna, PDF framköllunina, samþykktarferlið og gagnageymsluna. Eitt API kall hefði verið demo. Saumarnir á milli hlutanna gera þetta að verkfæri.',
+              en: 'I built the phone workflow, the voice-message intake, the transcription step, the extraction layer, the clarification loop, the PDF rendering, the approval step, and the report archive. One API call would have been a demo. The seams between the parts are where it becomes a tool.',
+            }, lang)}
+          </p>
+          <p style={{ margin: 0 }}>
+            {t({
+              is: 'Raddskilaboð eru ekki form. Umritun er ekki skýrsla. Módel sem svarar af öryggi er ekki endilega módel sem á að treysta. Þarna liggur hönnunarvinnan: hvar á kerfið að fylla út, hvar á það að spyrja og hvar á manneskjan að samþykkja?',
+              en: 'A voice message is not a form. A transcript is not a report. A confident model answer is not automatically something to trust. The design work sits there: where should the system fill in, where should it ask, and where should the human approve?',
+            }, lang)}
+          </p>
+          <p style={{ margin: 0 }}>
+            {t({
+              is: 'Ég smíðaði líka verkfærin í kringum kerfið: stillingar fyrir mismunandi skýrsluform, gagnagrunn fyrir eldri skýrslur, endurframköllun á PDF skjölum og einföld próf til að bera saman hvernig íslenska umritunin stendur sig. Það er leiðin frá demo-i yfir í verkfæri sem hægt er að reka.',
+              en: 'I also built the scaffolding around the workflow: configuration for different report formats, a database for previous reports, tools for re-rendering PDFs, and simple checks for comparing Icelandic transcription quality. That is the distance between a demo and a tool someone can actually operate.',
+            }, lang)}
+          </p>
+        </div>
+      </section>
+
+      {/* ─── 05 — Status and direction ──────────────────────────────── */}
+      <section style={{ position: 'relative', padding: '80px 80px 88px',
+        display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80,
+        borderBottom: `2px solid ${p.line}` }}>
+        <div>
+          <SectionLabel num="05">{t({ is: 'Staða', en: 'Status' }, lang)}</SectionLabel>
+          <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 44,
+            lineHeight: 1.05, letterSpacing: '-0.018em',
+            margin: 0, color: p.ink }}>
+            {t({ is: 'Virk prótótýpa.', en: 'Working prototype.' }, lang)}<br/>
+            <em style={{ color: p.clay, fontWeight: 500 }}>
+              {t({ is: 'Raunverulegt næst.', en: 'Real use next.' }, lang)}
+            </em>
+          </h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 22,
+          fontSize: 18, lineHeight: 1.65, color: p.mute, maxWidth: 620 }}>
+          <p style={{ margin: 0 }}>
+            {t({
+              is: 'Dagskýrslutól er ekki sett fram sem fullbúin SaaS vara eða stór innleiðing. Það er virk prótótýpa byggð utan um eitt raunverulegt skýrsluferli. Næsta próf er einfalt og óþægilegt á réttan hátt: alvöru notendur, alvöru skýrslur, alvöru mistök.',
+              en: 'Dagskýrslutól is not being presented as a finished SaaS product or a broad deployment. It is a working prototype built around one real reporting workflow. The next test is simple and uncomfortable in the useful way: real users, real reports, real mistakes.',
+            }, lang)}
+          </p>
+          <p style={{ margin: 0 }}>
+            {t({
+              is: 'Byggingarvinnan gefur verkefninu skýrt upphaf: dagskýrslur, fólk, tæki, veður, verkþættir, athugasemdir og PDF sem einhver þarf að geta lesið. Mynstrið er samt stærra. Viðhald, eftirlit, fiskvinnsla, álver, veitukerfi — alls staðar þar sem manneskjan með upplýsingarnar er ekki endilega við skrifborð.',
+              en: 'Construction gives the project a concrete start: daily reports, people, machines, weather, work completed, notes, and a PDF someone has to read later. The pattern is larger. Maintenance, inspections, fisheries, aluminium smelters, utilities — anywhere the person with the information is not necessarily at a desk.',
+            }, lang)}
+          </p>
+          <p style={{ margin: 0 }}>
+            {t({
+              is: 'Það er eiginlega pælingin. Ekki almennur spjallbot fyrir allt. Sérhæfður erindreki fyrir leiðinlegt en mikilvægt verk, nógu nálægt raunveruleikanum til að spara tíma.',
+              en: 'That is the bet. Not a general chatbot for everything. A specific agent for a boring but important job, close enough to the real workflow to save time.',
+            }, lang)}
+          </p>
         </div>
       </section>
 
