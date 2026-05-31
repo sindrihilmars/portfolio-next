@@ -116,7 +116,7 @@ function CopilotPage({ palette: p }) {
           }}>
             {t({
               is: 'Erindreki fyrir verkstjóra sem vilja vera á verkstaðnum.',
-              en: 'An agent for site supervisors who\'d rather be on the worksite.',
+              en: 'Icelandic voice-first field reporting — from the phone, not the desk.',
             }, lang)}
           </p>
           <p style={{
@@ -126,7 +126,7 @@ function CopilotPage({ palette: p }) {
           }}>
             {t({
               is: 'Verkstjórar greina frá deginum í töluðu máli. Claude notar viðeigandi upplýsingar til að spyrja réttu spurninganna og fylla inn í sérsniðna skýrslu fyrirtækisins. Skilar lesanlegu PDF skjali sem verkstjóri samþykkir — og sleppir því að koma við á skrifstofunni.',
-              en: 'Supervisors describe the day in plain speech. Claude uses the relevant context to ask the right follow-ups and fills in the company\'s own report. Out comes a readable PDF for the supervisor to approve — and they skip the trip back to the office.',
+              en: 'A working prototype for people who need to report what happened, but do not want to add a computer to the end of the day. Speak into Telegram, answer the missing questions, review the PDF, approve.',
             }, lang)}
           </p>
         </div>
@@ -179,25 +179,25 @@ function CopilotPage({ palette: p }) {
           <p style={{ margin: 0 }}>
             {t({
               is: 'Hvenær á að gera allar þessar litlu ómerkilegu skýrslur? Á skrifstofunni? Heima í fartölvunni? Ráða manneskju? Afhverju ekki bara eftir að þú hoppar upp í bílinn og áður en þú keyrir heim. Með núverandi tækni er einfalt að búa til sérhæfðan aðstoðarmann sem gerir þér kleyft að gera einföld verkefni án þess að þau taki tíma frá persónulega lífinu eða krefjist sérstakrar ferðar upp á skrifstofu. Og þetta er hræódýrt, ótrúlega skalanlegt og einfalt að setja upp.',
-              en: 'When are all these tiny, low-priority reports meant to get done? At the office? At home on the laptop? By a hired hand? Why not just after you climb into the truck — before you drive home? With today\'s tools it\'s straightforward to build a specialised assistant that lets you handle the small things without them eating into your personal time or forcing a trip to the office. And it\'s dirt cheap, remarkably scalable, and quick to set up.',
+              en: 'When are all these tiny, low-priority reports meant to get done? At the office? At home on the laptop? By a hired hand? The person on site already knows what happened. The phone is already in their pocket. A short voice message from the truck is often a better interface than a form built for a desk.',
             }, lang)}
           </p>
           <p style={{ margin: 0 }}>
             {t({
               is: 'Yfirmaður minn fékk mig lengi vel til að gera þetta fyrir sig og borgaði mér fyrir. Svo í staðinn byggði ég fyrir hann einfaldan erindreka til að gera það sem ég gerði áður fyrr og hefur hann nú leyst mig af.',
-              en: 'For a long stretch my boss had me writing these reports for him and paid me to do it. So I built him a simple agent that does what I used to — and it\'s taken over the job.',
+              en: 'For a long stretch my boss had me writing these reports for him and paid me to do it. So I built a simple agent for the job I used to do: listen to the day, pull out the useful parts, and turn it into the company\'s report format.',
             }, lang)}
           </p>
           <p style={{ margin: 0 }}>
             {t({
               is: 'Skilyrðið var að þessi erindreki gæti tekið við fyrirmælum á íslensku og að ekki þyrfti að rífa upp lyklaborðið, að niðurstöðurnar væru fullnægjandi í yfir 90% tilfella og að skýrsla færi aldrei neitt áður en hún hefði verið samþykkt tvisvar.',
-              en: 'The conditions were these: the agent had to take instructions in Icelandic, never require a keyboard, deliver a satisfactory result in over 90% of cases, and never send a report until it had been approved twice.',
+              en: 'The conditions were practical: it had to understand Icelandic field speech, work from the phone, ask instead of guessing, and keep the supervisor in control before anything became official.',
             }, lang)}
           </p>
           <p style={{ margin: 0 }}>
             {t({
               is: 'Þetta aukaverkefni er einfalt í uppsetningu og notkun og bíður eftir því að vera innleitt í fleiri sambærilega verkferla.',
-              en: 'It\'s a side project. Simple to deploy, simple to operate — and waiting to be applied to more workflows like it.',
+              en: 'It is still a prototype, but the shape is complete: voice message → AI → tailored report. Small enough to understand. Useful enough to test in the real workflow.',
             }, lang)}
           </p>
         </div>
@@ -224,7 +224,7 @@ function CopilotPage({ palette: p }) {
             <p style={{ margin: 0 }}>
               {t({
                 is: "Verkstjóri talar við erindrekann í gegnum Telegram. Erindrekinn er talmenni sem hægt er að leita af og finna á Telegram. Eftir að hafa fengið aðgang að talmenninu þá eru raddskilaboð tekin upp og erindrekinn spyr spurninga í textaformi þangað til skýrslan er útfyllt. Erindrekinn notar Whisper frá OpenAI til að breyta raddskilaboðum í texta og Opus 4.7 til að breyta textanum í rétt uppsetta skýrslu samkvæmt þeim reglum sem hann er bundinn við, eftir þetta er skýrslan framkölluð sem pdf með Python, pdf skýrslan er send af erindrekanum í gegnum Telegram þar sem hægt er að opna skýrsluna, skoða hana og ákveða hvort hún verði notuð eða ekki. Skýrslunum er safnað saman í gagnabanka og þegar kemur að því að skila skýrslum til þriðja aðila, t.d. vikulega, þá er skýrslur vikunnar settar í innhólf viðkomandi sem 'draft' þar sem hægt er að fara aftur yfir áður en skýrslurnar eru sendar.",
-                en: "The supervisor talks to the agent through Telegram. The agent is a chatbot you can search for and find on Telegram. After getting access, the supervisor records voice messages and the agent asks follow-up questions in text until the report is filled out. Whisper (from OpenAI) converts voice to text; Opus 4.7 turns the text into a properly structured report following the rules it's bound by; the report is then rendered as a PDF with Python and delivered back through Telegram, where the supervisor can open it, review it, and decide whether to use it. Reports are collected in a database, and when it's time to submit them to a third party — say, weekly — the week's reports are placed as 'drafts' in the recipient's inbox, where they can be reviewed once more before sending.",
+                en: "The supervisor talks to the agent through Telegram. A voice note comes in from the phone. Whisper turns Icelandic speech into text. A language model extracts the structured report fields, checks them against the expected format, and asks a follow-up question when the day is underspecified. Python renders the approved result as a PDF. The reports stay in a SQLite archive so they can be reviewed, re-rendered, grouped into weekly handovers, or used to improve the next version.",
               }, lang)}
             </p>
           </div>
@@ -236,34 +236,34 @@ function CopilotPage({ palette: p }) {
             palette={p} fontDisplay={fontDisplay} fontMono={fontMono} fontText={fontText}
             num="i"
             title="Listen"
-            blurb="The supervisor records a voice note from wherever he is — Telegram from the phone, or a single keystroke on the laptop. Whisper transcribes Icelandic on-device, biased with a construction glossary and the day's crew roster so it gets names and trade terms right the first time."
+            blurb="The supervisor records a voice note from the phone. The input can be messy: Icelandic half-sentences, place names, worker names, machine names, corrections, and the kind of shorthand people use when they are not trying to write documentation."
             screen={<ScreenIngest palette={p} fontMono={fontMono} fontText={fontText}/>}
             annotations={[
-              { x: 12, y: 22, w: 220, label: 'Voice in from Telegram or laptop CLI. Same backend either way.' },
-              { x: 68, y: 64, w: 220, label: 'Whisper biased with crew + machine + site vocabulary per supervisor.' },
+              { x: 12, y: 22, w: 220, label: 'Voice in through Telegram, from the device already in the worker’s pocket.' },
+              { x: 68, y: 64, w: 220, label: 'Icelandic transcription with site, crew, and machine context close at hand.' },
             ]}
           />
           <AnnotatedScreen
             palette={p} fontDisplay={fontDisplay} fontMono={fontMono} fontText={fontText}
             num="ii"
-            title="Reason"
-            blurb="Claude reads the transcript with tool-use and extracts the report's structured fields — crew count, machines, hours, weather, narrative. When something is ambiguous it asks the supervisor back over Telegram instead of guessing. If Opus is busy the call falls back to Sonnet, then Haiku — a missed report would be a missed day."
+            title="Ask"
+            blurb="A transcript is not a report. The agent turns natural speech into structured fields — crew, machines, work completed, weather, notes — and leaves blanks where the answer is not there. The useful move is often the follow-up question, not the first draft."
             screen={<ScreenDraft palette={p} fontMono={fontMono} fontText={fontText}/>}
             reverse
             annotations={[
-              { x: 8, y: 14, w: 240, label: 'Tool-use extraction into a Pydantic schema. The schema is the contract.' },
-              { x: 56, y: 60, w: 240, label: 'Clarification loop: the model asks instead of fabricates. Opus → Sonnet → Haiku fallback.' },
+              { x: 8, y: 14, w: 240, label: 'Extraction into a structured schema. The report format sets the boundaries.' },
+              { x: 56, y: 60, w: 240, label: 'Clarification loop: ask the supervisor instead of filling silence with confidence.' },
             ]}
           />
           <AnnotatedScreen
             palette={p} fontDisplay={fontDisplay} fontMono={fontMono} fontText={fontText}
             num="iii"
-            title="Render"
-            blurb="ReportLab paints the company's existing PDF template with the extracted fields, in Icelandic. The supervisor reviews on the phone, sends to the client. Every report is archived in SQLite so it can be re-rendered, re-formatted, or rolled into a weekly summary later."
+            title="Assemble"
+            blurb="The final report is still a document a human owns. Python renders the PDF, Telegram sends it back, and the supervisor approves or rejects it. The point is not to remove review. It is to remove the unwanted trip through a keyboard."
             screen={<ScreenEvidence palette={p} fontMono={fontMono} fontText={fontText}/>}
             annotations={[
-              { x: 50, y: 18, w: 220, label: 'Same PDF the client already gets — no new format to learn.' },
-              { x: 12, y: 70, w: 240, label: 'Every report retained in SQLite. Re-rendering and aggregation come free.' },
+              { x: 50, y: 18, w: 220, label: 'A familiar PDF output, not a new portal for everyone to learn.' },
+              { x: 12, y: 70, w: 240, label: 'Archive first. Re-rendering, weekly drafts, and evaluation data come later.' },
             ]}
           />
         </div>
@@ -290,14 +290,14 @@ function CopilotPage({ palette: p }) {
             maxWidth: 620, margin: '0 0 24px' }}>
             {t({
               is: 'Dagskýrslutólið er í daglegri notkun í fyrirtækinu sem ég vinn hjá — og það er auðvelt að aðlaga það að öðrum aðstæðum. Raddskilaboð → Gervigreind → sérsniðin skýrsla, fyrir þá sem ættu ekki að þurfa að koma við á skrifstofunni. Fiskiðnaður, álver, eftirlit — spurningin er hvert fer þetta næst.',
-              en: 'Dagskýrslutól is in daily use at the company I work for — and it\'s easy to adapt to other contexts. Voice messages → AI → tailored report, for people who shouldn\'t have to come by the office at all. Fisheries, aluminium smelters, inspections — the question is where it goes next.',
+              en: 'Dagskýrslutól is a working prototype built for one real reporting workflow, with the next step being practical use and feedback. Voice messages → AI → tailored report, for people who should not need a desk to say what happened. Construction is the first use case. Fisheries, aluminium smelters, maintenance, inspections — the pattern is wider.',
             }, lang)}
           </p>
           <p style={{ fontSize: 19, lineHeight: 1.6, color: p.mute,
             maxWidth: 620, margin: '0 0 36px' }}>
             {t({
               is: 'Ég leita af tækifærum á Íslandi til að innleiða gervigreind inn í fyrirtæki sem vita ekki hvar þau eiga að byrja — og að spennandi rannsóknarverkefnum þar sem framlína gervigreindarinnar er könnuð.',
-              en: 'I\'m looking for opportunities in Iceland to bring AI into companies that don\'t know where to start — and for exciting research projects exploring the frontier of AI.',
+              en: 'I am looking for opportunities in Iceland to bring AI into companies that know the work but do not yet know where AI fits — and for research projects close enough to the frontier to teach me something.',
             }, lang)}
           </p>
           <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>

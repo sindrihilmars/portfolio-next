@@ -92,6 +92,10 @@ job is currently construction work; side projects are technical.
 - **Padding for length.** Trimmed résumé from 6 to 3 rows when the
   rest were one click away on the standalone CV. *Three sharp ones
   beat four padded ones* is his operating principle.
+- **AI-tell explanation crutches.** Phrases like *"and that matters
+  because…"* or *"that is important because…"* can over-explain the
+  point. Prefer a sharper sentence, a concrete example, or trusting
+  the reader to infer the weight.
 - **Translating UI conventions where the brevity wins.** *Opna* alone
   is a fine button label in IS (single-word imperative); the EN
   equivalent *Open* is too terse without context, so he accepts

@@ -127,12 +127,12 @@ const PROJECTS = [
     href: 'work/construction-copilot.html',
     blurb: {
       is: 'Dagskýrslu erindreki byggður í kringum Íslenskt talmál. Verkstjórar senda radd-skilaboð í gegnum Telegram og fá til baka sérsniðna skýrslu, sem þarf síðan að samþykkja. Erindrekinn getur spurt spurninga sem tryggja að allt kemur fram sem þarf að koma fram.',
-      en: 'A daily-report agent built around Icelandic speech. Site supervisors send voice messages via Telegram and receive a tailored report to approve. The agent asks clarifying questions to make sure nothing important gets left out.',
+      en: 'A daily-report agent built around Icelandic speech. Site supervisors send voice messages through Telegram, answer follow-up questions when needed, and receive a tailored report to approve.',
     },
     bullets: [
       'Python · Claude · Whisper · Telegram',
-      'Multilingual input → Icelandic output',
-      'Clarification loops + Opus→Sonnet→Haiku fallback',
+      'Icelandic voice → structured report',
+      'Clarification loops + human approval',
     ],
     art: 'agent',
   },
