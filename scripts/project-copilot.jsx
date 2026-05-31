@@ -289,7 +289,7 @@ function CopilotPage({ palette: p }) {
           <p style={{ fontSize: 19, lineHeight: 1.6, color: p.mute,
             maxWidth: 620, margin: '0 0 24px' }}>
             {t({
-              is: 'Dagskýrslutólið er í daglegri notkun í fyrirtækinu sem ég vinn hjá — og það er auðvelt að aðlaga það að öðrum aðstæðum. Raddskilaboð → Gervigreind → sérsniðin skýrsla, fyrir þá sem ættu ekki að þurfa að koma við á skrifstofunni. Fiskiðnaður, álver, eftirlit — spurningin er hvert fer þetta næst.',
+              is: 'Dagskýrslutólið er virk prótótýpa, byggð utan um eitt raunverulegt skýrsluferli - næstu skref eru að sjá hvernig það virkar í raunverulegum aðstæðum. Raddskilaboð → Gervigreind → sérsniðin skýrsla, fyrir þá sem ættu ekki að þurfa skrifborð til að segja hvað gerðist. Byggingarvinnan er fyrsta notkunartilfellið. Fiskiðnaður, álver, viðhald, eftirlit — mynstrið er víðara.',
               en: 'Dagskýrslutól is a working prototype built for one real reporting workflow, with the next step being practical use and feedback. Voice messages → AI → tailored report, for people who should not need a desk to say what happened. Construction is the first use case. Fisheries, aluminium smelters, maintenance, inspections — the pattern is wider.',
             }, lang)}
           </p>
