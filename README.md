@@ -13,6 +13,7 @@ files do, how React + Babel from a CDN render the pages, where to
 edit what — see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md). For a
 voice / style brief on how Sindri writes (useful when drafting new
 copy in his register), see [`docs/WRITING_STYLE.md`](docs/WRITING_STYLE.md).
+For day-to-day commands (dev server, PR review), see [`docs/workflow.md`](docs/workflow.md).
 
 ## Where it lives
 
@@ -36,7 +37,8 @@ copy in his register), see [`docs/WRITING_STYLE.md`](docs/WRITING_STYLE.md).
 ├── Eg.jpg                                    # headshot used in the hero
 ├── docs/
 │   ├── ARCHITECTURE.md                       # how the site is wired
-│   └── WRITING_STYLE.md                      # Sindri's voice / editorial brief
+│   ├── WRITING_STYLE.md                      # Sindri's voice / editorial brief
+│   └── workflow.md                           # dev server + PR review commands
 ├── highlands/
 │   ├── colors_and_type.css                   # tokens (color, type, spacing,
 │   │                                         #   radii, shadows, buttons)
@@ -49,21 +51,25 @@ copy in his register), see [`docs/WRITING_STYLE.md`](docs/WRITING_STYLE.md).
     ├── bloom-landing.jsx                     # landing-page component
     ├── project-copilot.jsx                   # case-study component
     ├── app-landing.jsx                       # entry for /index.html
-    └── app-copilot.jsx                       # entry for /work/construction-copilot.html
-```
+    ├── app-copilot.jsx                       # entry for /work/construction-copilot.html
+    ├── diff_server.py                        # visual PR diff preview (port 8081)
+    └── review_pr.py                          # automated review via GitHub Actions
 
 ## Running it locally
 
 It's static. Open a small dev server in the repo root, then visit:
 
 ```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
+python3 -m http.server 8080 --bind 127.0.0.1
+# then open http://localhost:8080
 ```
 
 Opening `index.html` directly via `file://` will not work — the JSX
 files are loaded with relative URLs that most browsers block on
 `file://`.
+
+To review a content PR with changes highlighted, use the diff server on
+port 8081 instead — see [`docs/workflow.md`](docs/workflow.md).
 
 ## How it's built
 
@@ -100,7 +106,7 @@ page and drop the Babel script tag.
   Résumé section links to it as "Open full CV →". The bundle was
   authored elsewhere; the file in this repo is the published artifact.
 
-## Status (May 2026)
+## Status (June 2026)
 
 **Bilingual.** IS / EN toggle is wired across both pages; selection
 persists across navigation via `localStorage`. Default language is
