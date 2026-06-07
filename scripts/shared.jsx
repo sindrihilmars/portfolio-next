@@ -87,7 +87,7 @@ function resolvePalette(name, dark) {
 const PROFILE = {
   name: 'Sindri Már Hilmarsson',
   initials: 'SMH',
-  role: 'Mechanical Engineer · BS · Edge AI & agents',
+  role: 'Mechanical Engineer · BS · Industrial systems & applied AI',
   location: 'Reykjavík, Iceland',
   email: 'sindrihilmars@gmail.com',
   phone: '+354 696 1902',
@@ -95,7 +95,7 @@ const PROFILE = {
   linkedin: null,
   cvHref: 'CV-Sindri-Mar-Hilmarsson-standalone.html',
   photo: 'Eg.jpg',
-  blurb: 'Mechanical engineer with a deep interest in edge AI and agents. My mechanical-engineering background lets me ground that knowledge in tangible work — and I am looking for a role where bringing AI into real systems is at the centre of the work.',
+  blurb: 'Mechanical engineer with hands-on construction, aluminium-production, and Formula Student leadership experience. I am looking for engineering work in real industrial, infrastructure, or product environments while building toward practical AI, automation, and digital tools for physical operations.',
 };
 
 const PROJECTS = [
