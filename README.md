@@ -52,7 +52,9 @@ For day-to-day commands (dev server, PR review), see [`docs/workflow.md`](docs/w
     ├── project-copilot.jsx                   # case-study component
     ├── app-landing.jsx                       # entry for /index.html
     ├── app-copilot.jsx                       # entry for /work/construction-copilot.html
-    ├── diff_server.py                        # visual PR diff preview (port 8081)
+    ├── diff_server.py                        # visual PR diff preview (port 8081);
+    │                                         #   click green highlights to edit inline,
+    │                                         #   saves to diff_edits.json for merge
     └── review_pr.py                          # automated review via GitHub Actions
 
 ## Running it locally
@@ -69,7 +71,10 @@ files are loaded with relative URLs that most browsers block on
 `file://`.
 
 To review a content PR with changes highlighted, use the diff server on
-port 8081 instead — see [`docs/workflow.md`](docs/workflow.md).
+port 8081 instead — see [`docs/workflow.md`](docs/workflow.md). While
+reviewing, click any green highlight to open an inline editor; edits
+persist to `diff_edits.json` (git-ignored). Tell Claude "merge with my
+edits" and it applies them before committing.
 
 ## How it's built
 
@@ -105,6 +110,10 @@ page and drop the Babel script tag.
   (fonts and image embedded as a bundler manifest). The landing's
   Résumé section links to it as "Open full CV →". The bundle was
   authored elsewhere; the file in this repo is the published artifact.
+  **Important:** if the CV is regenerated, any `</script>` tags inside
+  the `__bundler/template` JSON string must be escaped as `<\/script>`;
+  an unescaped one terminates the script block early and the CV fails
+  to render.
 
 ## Status (June 2026)
 
@@ -122,7 +131,7 @@ Real, in Sindri's own voice across both languages:
   2026* / *Gervigreind í notkun 2026*), meta card (Role / Timeline /
   Status as *Beta release* / *Beta Útgáfa*), hero artwork labels, §01
   *In brief* (full prose), §02 *How it works* heading + intro, §02
-  outro section.
+  outro section, §03 *End to end* full prose, §05 *Status* full prose.
 
 Still English-only — to be translated next:
 - The three annotated screens in §02 (Listen / Ask / Assemble) — each
