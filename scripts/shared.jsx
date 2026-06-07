@@ -115,6 +115,7 @@ const PROJECTS = [
       { is: 'Fyrsti Batterípakki síðan 2017', en: 'First battery pack since 2017' },
       { is: 'Fyrsti keyrandi bíll síðan 2019 → Spánn 2026', en: 'First running car since 2019 → Spain 2026' },
     ],
+    href: 'work/team-spark.html',
     art: 'circuit',
   },
   {
