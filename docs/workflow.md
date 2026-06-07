@@ -62,13 +62,23 @@ branch version with removed strings highlighted red.
 
 **5. Accept or send back**
 
-```bash
-# Accept and delete the branch
-gh pr merge <n> --merge --delete-branch
+*Accept* — merge and delete the branch. The bot detects the merged state
+via the GitHub API and treats it as a clean approval.
 
-# Request changes
-gh pr review <n> --request-changes --body "..."
+```bash
+gh pr merge <n> --merge --delete-branch
 ```
+
+*Send back with notes* — post a `CHANGES_REQUESTED` review. The bot polls
+its open PRs for reviews of this type and reads the body as feedback. Keep
+the body plain prose; no special format required.
+
+```bash
+gh pr review <n> --request-changes --body "The intro is too long — cut the second sentence. The aluminium paragraph reads well."
+```
+
+The PR stays open. The bot will pick up the review body, revise, and push a
+new commit to the same branch. The PR updates automatically.
 
 **6. Return to main**
 
