@@ -265,44 +265,6 @@ function CopilotPage({ palette: p }) {
             </p>
           </div>
         </div>
-
-        {/* Annotated screens */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
-          <AnnotatedScreen
-            palette={p} fontDisplay={fontDisplay} fontMono={fontMono} fontText={fontText}
-            num="i"
-            title="Listen"
-            blurb="The supervisor records a voice note from the phone. The input can be messy: Icelandic half-sentences, place names, worker names, machine names, corrections, and the kind of shorthand people use when they are not trying to write documentation."
-            screen={<ScreenIngest palette={p} fontMono={fontMono} fontText={fontText}/>}
-            annotations={[
-              { x: 12, y: 22, w: 220, label: 'Voice in through Telegram, from the device already in the worker’s pocket.' },
-              { x: 68, y: 64, w: 220, label: 'Icelandic transcription with site, crew, and machine context close at hand.' },
-            ]}
-          />
-          <AnnotatedScreen
-            palette={p} fontDisplay={fontDisplay} fontMono={fontMono} fontText={fontText}
-            num="ii"
-            title="Ask"
-            blurb="A transcript is not a report. The agent turns natural speech into structured fields — crew, machines, work completed, weather, notes — and leaves blanks where the answer is not there. The useful move is often the follow-up question, not the first draft."
-            screen={<ScreenDraft palette={p} fontMono={fontMono} fontText={fontText}/>}
-            reverse
-            annotations={[
-              { x: 8, y: 14, w: 240, label: 'Extraction into a structured schema. The report format sets the boundaries.' },
-              { x: 56, y: 60, w: 240, label: 'Clarification loop: ask the supervisor instead of filling silence with confidence.' },
-            ]}
-          />
-          <AnnotatedScreen
-            palette={p} fontDisplay={fontDisplay} fontMono={fontMono} fontText={fontText}
-            num="iii"
-            title="Assemble"
-            blurb="The final report is still a document a human owns. Python renders the PDF, Telegram sends it back, and the supervisor approves or rejects it. The point is not to remove review. It is to remove the unwanted trip through a keyboard."
-            screen={<ScreenEvidence palette={p} fontMono={fontMono} fontText={fontText}/>}
-            annotations={[
-              { x: 50, y: 18, w: 220, label: 'A familiar PDF output, not a new portal for everyone to learn.' },
-              { x: 12, y: 70, w: 240, label: 'Archive first. Re-rendering, weekly drafts, and evaluation data come later.' },
-            ]}
-          />
-        </div>
       </section>
 
       {/* ─── 04 — What I built ──────────────────────────────────────── */}
