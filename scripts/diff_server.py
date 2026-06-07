@@ -158,13 +158,59 @@ window.DS=__DS__;
   var m=new URLSearchParams(location.search).get('diff')||'new';
   var base='__BASE__';
   var ss=(window.DS&&window.DS[m])||[];
+
+  function openEditor(mk){
+    var original=mk.dataset.original||mk.textContent;
+    var overlay=document.createElement('div');
+    overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10000;display:flex;align-items:center;justify-content:center';
+    var box=document.createElement('div');
+    box.style.cssText='background:#fff;border-radius:8px;padding:24px;width:560px;max-width:90vw;font-family:system-ui,sans-serif;box-shadow:0 8px 32px rgba(0,0,0,.25)';
+    var label=document.createElement('p');
+    label.style.cssText='margin:0 0 8px;font-size:12px;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.05em';
+    label.textContent='Edit — added text';
+    var ta=document.createElement('textarea');
+    ta.value=mk.textContent;
+    ta.style.cssText='width:100%;box-sizing:border-box;height:120px;font-size:15px;line-height:1.6;padding:10px;border:1.5px solid #ddd;border-radius:6px;resize:vertical;font-family:inherit';
+    var row=document.createElement('div');
+    row.style.cssText='display:flex;gap:8px;margin-top:14px;justify-content:flex-end';
+    var cancel=document.createElement('button');
+    cancel.textContent='Cancel';
+    cancel.style.cssText='padding:8px 16px;border:1.5px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:14px';
+    var save=document.createElement('button');
+    save.textContent='Save';
+    save.style.cssText='padding:8px 18px;border:none;border-radius:6px;background:#222;color:#fff;cursor:pointer;font-size:14px;font-weight:600';
+    cancel.onclick=function(){ document.body.removeChild(overlay); };
+    save.onclick=function(){
+      var edited=ta.value.trim();
+      if(!edited){ document.body.removeChild(overlay); return; }
+      fetch('/edits',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({original:original,edited:edited})})
+      .then(function(){
+        mk.dataset.original=original;
+        mk.textContent=edited;
+        mk.classList.remove('diff-new');
+        mk.classList.add('diff-edited');
+        document.body.removeChild(overlay);
+      });
+    };
+    row.appendChild(cancel); row.appendChild(save);
+    box.appendChild(label); box.appendChild(ta); box.appendChild(row);
+    overlay.appendChild(box);
+    overlay.onclick=function(e){ if(e.target===overlay) document.body.removeChild(overlay); };
+    document.body.appendChild(overlay);
+    ta.focus(); ta.select();
+  }
+
   function inject(){
     if(!document.getElementById('diff-styles')){
       var st=document.createElement('style');
       st.id='diff-styles';
       st.textContent=
-        'mark.diff-new{background:rgba(60,200,80,.28);border-radius:2px;padding:0 1px}'+
-        'mark.diff-old{background:rgba(220,50,50,.28);border-radius:2px;padding:0 1px}';
+        'mark.diff-new{background:rgba(60,200,80,.28);border-radius:2px;padding:0 1px;cursor:pointer}'+
+        'mark.diff-new:hover{filter:brightness(1.15)}'+
+        'mark.diff-old{background:rgba(220,50,50,.28);border-radius:2px;padding:0 1px}'+
+        'mark.diff-edited{background:rgba(80,120,220,.28);border-radius:2px;padding:0 1px;cursor:pointer}'+
+        'mark.diff-edited:hover{filter:brightness(1.15)}';
       (document.head||document.documentElement).appendChild(st);
     }
     if(!document.getElementById('dt')){
@@ -204,6 +250,23 @@ window.DS=__DS__;
         break;
       }
     }
+    if(m==='new'){
+      document.querySelectorAll('mark.diff-new').forEach(function(mk){
+        mk.addEventListener('click',function(e){ e.stopPropagation(); openEditor(mk); });
+      });
+      fetch('/edits').then(function(r){return r.json();}).then(function(edits){
+        document.querySelectorAll('mark.diff-new').forEach(function(mk){
+          var hit=edits.find(function(e){return e.original===mk.textContent;});
+          if(hit){
+            mk.dataset.original=mk.textContent;
+            mk.textContent=hit.edited;
+            mk.classList.remove('diff-new');
+            mk.classList.add('diff-edited');
+            mk.title='Original: '+hit.original;
+          }
+        });
+      });
+    }
   }
   document.readyState==='loading'
     ?document.addEventListener('DOMContentLoaded',function(){setTimeout(inject,1000);})
@@ -222,6 +285,13 @@ class DiffHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urlparse(self.path)
+
+        if parsed.path == '/edits':
+            edits_path = os.path.join(REPO_ROOT, 'diff_edits.json')
+            data = open(edits_path, encoding='utf-8').read() if os.path.exists(edits_path) else '[]'
+            self._send(data.encode('utf-8'), 'application/json')
+            return
+
         mode = parse_qs(parsed.query).get('diff', ['new'])[0]
         local = os.path.join(REPO_ROOT, parsed.path.lstrip('/'))
         if os.path.isdir(local):
@@ -234,6 +304,22 @@ class DiffHandler(SimpleHTTPRequestHandler):
             self._serve_jsx(local, mode)
         else:
             super().do_GET()
+
+    def do_POST(self):
+        if self.path != '/edits':
+            self.send_error(404)
+            return
+        length = int(self.headers.get('Content-Length', 0))
+        body = json.loads(self.rfile.read(length))
+        edits_path = os.path.join(REPO_ROOT, 'diff_edits.json')
+        edits = json.loads(open(edits_path, encoding='utf-8').read()) if os.path.exists(edits_path) else []
+        edits = [e for e in edits if e['original'] != body['original']]
+        edits.append({'original': body['original'], 'edited': body['edited']})
+        open(edits_path, 'w', encoding='utf-8').write(json.dumps(edits, ensure_ascii=False, indent=2))
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.end_headers()
+        self.wfile.write(b'{"ok":true}')
 
     def _serve_html(self, local, mode, path):
         rel = os.path.relpath(local, REPO_ROOT)
