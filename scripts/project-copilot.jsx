@@ -315,26 +315,26 @@ function CopilotPage({ palette: p }) {
             lineHeight: 1.05, letterSpacing: '-0.018em',
             margin: 0, color: p.ink }}>
             {t({ is: 'Enda á milli,', en: 'End to end,' }, lang)}<br/>
-            {t({ is: 'ekki bara kall í módel.', en: 'not just a model call.' }, lang)}
+            {t({ is: 'ekki bara skilaboð á módel.', en: 'not just a model call.' }, lang)}
           </h2>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 22,
           fontSize: 18, lineHeight: 1.65, color: p.mute, maxWidth: 620 }}>
           <p style={{ margin: 0 }}>
             {t({
-              is: 'Ég byggði símaflæðið, raddskilaboðin, umritunina, útdráttinn, spurningalykkjuna, PDF framköllunina, samþykktarferlið og gagnageymsluna. Eitt API kall hefði verið demo. Saumarnir á milli hlutanna gera þetta að verkfæri.',
+              is: 'Ég byggði símaflæðið, raddskilaboðin, umritunina, útdráttinn, spurningalykkjuna, PDF framköllunina, samþykktarferlið og gagnageymsluna með hjálp gervigreindar. Fyrir hversdaglega skýrslur gerir þetta mér kleift að fá vöru í hendurnar sem fyrst og að prófa hana um leið.',
               en: 'I built the phone workflow, the voice-message intake, the transcription step, the extraction layer, the clarification loop, the PDF rendering, the approval step, and the report archive. One API call would have been a demo. The seams between the parts are where it becomes a tool.',
             }, lang)}
           </p>
           <p style={{ margin: 0 }}>
             {t({
-              is: 'Raddskilaboð eru ekki form. Umritun er ekki skýrsla. Módel sem svarar af öryggi er ekki endilega módel sem á að treysta. Þarna liggur hönnunarvinnan: hvar á kerfið að fylla út, hvar á það að spyrja og hvar á manneskjan að samþykkja?',
+              is: 'Raddskilaboð geta verið ruglandi og ófullkomin. Módel sem svarar af öryggi er ekki endilega módel sem á að treysta. Þarna liggur hönnunarvinnan: hvar á kerfið að fylla út, hvar á það að spyrja og hvar á manneskjan að samþykkja?',
               en: 'A voice message is not a form. A transcript is not a report. A confident model answer is not automatically something to trust. The design work sits there: where should the system fill in, where should it ask, and where should the human approve?',
             }, lang)}
           </p>
           <p style={{ margin: 0 }}>
             {t({
-              is: 'Ég smíðaði líka verkfærin í kringum kerfið: stillingar fyrir mismunandi skýrsluform, gagnagrunn fyrir eldri skýrslur, endurframköllun á PDF skjölum og einföld próf til að bera saman hvernig íslenska umritunin stendur sig. Það er leiðin frá demo-i yfir í verkfæri sem hægt er að reka.',
+              is: 'Ég smíðaði líka verkfærin í kringum kerfið: stillingar fyrir mismunandi skýrsluform, gagnagrunn fyrir eldri skýrslur, endurframköllun á PDF skjölum og einföld próf til að bera saman hvernig íslenska umritunin stendur sig. Kerfið ætti því aðeins að vaxa og verða betra þeimun fleiri sem nota það.',
               en: 'I also built the scaffolding around the workflow: configuration for different report formats, a database for previous reports, tools for re-rendering PDFs, and simple checks for comparing Icelandic transcription quality. That is the distance between a demo and a tool someone can actually operate.',
             }, lang)}
           </p>
@@ -352,7 +352,7 @@ function CopilotPage({ palette: p }) {
             margin: 0, color: p.ink }}>
             {t({ is: 'Virk prótótýpa.', en: 'Working prototype.' }, lang)}<br/>
             <em style={{ color: p.clay, fontWeight: 500 }}>
-              {t({ is: 'Raunverulegt næst.', en: 'Real use next.' }, lang)}
+              {t({ is: 'Raunnotkun næst.', en: 'Real use next.' }, lang)}
             </em>
           </h2>
         </div>
@@ -360,7 +360,7 @@ function CopilotPage({ palette: p }) {
           fontSize: 18, lineHeight: 1.65, color: p.mute, maxWidth: 620 }}>
           <p style={{ margin: 0 }}>
             {t({
-              is: 'Dagskýrslutól er ekki sett fram sem fullbúin SaaS vara eða stór innleiðing. Það er virk prótótýpa byggð utan um eitt raunverulegt skýrsluferli. Næsta próf er einfalt og óþægilegt á réttan hátt: alvöru notendur, alvöru skýrslur, alvöru mistök.',
+              is: 'Dagskýrslutól er ekki sett fram sem fullbúin vara eða stór innleiðing. Það er virk prótótýpa byggð utan um eitt raunverulegt skýrsluferli. Næsta próf er einfalt og óþægilegt á réttan hátt: alvöru notendur, alvöru skýrslur, alvöru mistök.',
               en: 'Dagskýrslutól is not being presented as a finished SaaS product or a broad deployment. It is a working prototype built around one real reporting workflow. The next test is simple and uncomfortable in the useful way: real users, real reports, real mistakes.',
             }, lang)}
           </p>
