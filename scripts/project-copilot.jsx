@@ -8,6 +8,7 @@ function CopilotPage({ palette: p }) {
   const fontText    = `'Bricolage Grotesque', system-ui, sans-serif`;
   const fontMono    = `'JetBrains Mono', ui-monospace, monospace`;
   const [lang, setLang] = useLanguage('en');
+  const [lightbox, setLightbox] = React.useState(null);
 
   const SectionLabel = ({ num, children }) => (
     <div style={{
@@ -265,6 +266,34 @@ function CopilotPage({ palette: p }) {
             </p>
           </div>
         </div>
+
+        {/* Screenshot */}
+        <div style={{ marginTop: 8 }}>
+          <img
+            src="../work/assets/dagskyrslutol-telegram.png"
+            alt="Telegram conversation: voice note in, clarifying question, PDF out"
+            onClick={() => setLightbox('../work/assets/dagskyrslutol-telegram.png')}
+          style={{ width: '100%', maxWidth: 720, display: 'block', margin: '0 auto', borderRadius: 8,
+              border: `1px solid ${p.line}`, boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+              cursor: 'zoom-in' }}
+          />
+          <div style={{ marginTop: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 24 }}>
+            <p style={{ margin: 0, fontSize: 13, color: p.mute, lineHeight: 1.5 }}>
+              {t({
+                is: 'Samtal í Telegram — raddskilaboð inn, skýring út, PDF til baka.',
+                en: 'Telegram thread — voice note in, clarifying question out, PDF back.',
+              }, lang)}
+            </p>
+            <a
+              href="../work/assets/dagskyrslutol-report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ flexShrink: 0, fontSize: 13, color: p.ink, textDecoration: 'none',
+                borderBottom: `1px solid ${p.ink}`, paddingBottom: 1, whiteSpace: 'nowrap' }}>
+              {t({ is: 'Skoða skýrslu PDF →', en: 'View report PDF →' }, lang)}
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* ─── 04 — What I built ──────────────────────────────────────── */}
@@ -396,6 +425,22 @@ function CopilotPage({ palette: p }) {
           </a>
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          onClick={() => setLightbox(null)}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            zIndex: 1000, cursor: 'zoom-out', padding: 32 }}>
+          <img
+            src={lightbox}
+            alt=""
+            style={{ maxWidth: '100%', maxHeight: '100%', borderRadius: 6,
+              boxShadow: '0 8px 64px rgba(0,0,0,0.5)' }}
+          />
+        </div>
+      )}
     </div>
   );
 }
