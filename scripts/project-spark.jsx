@@ -138,19 +138,19 @@ function SparkPage({ palette: p }) {
           </span>
           <span style={{ fontFamily: fontText, fontSize: 11, color: p.mute,
             letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 500 }}>
-            — portfolio · 2026
+            {t({ is: '— verkefnasafn 2026', en: '— portfolio · 2026' }, lang)}
           </span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
           <nav className="bloom-nav" style={{ display: 'flex', gap: 28, fontFamily: fontText, fontSize: 13,
             letterSpacing: '0.04em' }}>
             {[
-              { l: 'Work',    h: '../index.html#work' },
-              { l: 'Now',     h: '../index.html#now' },
-              { l: 'Résumé', h: '../index.html#resume' },
-              { l: 'Say hi',  h: '../index.html#contact' },
+              { l: { is: 'Verkefni',      en: 'Work'    }, h: '../index.html#work' },
+              { l: { is: 'Í vinnslu',     en: 'Now'     }, h: '../index.html#now' },
+              { l: { is: 'Ferilskrá',     en: 'Résumé'  }, h: '../index.html#resume' },
+              { l: { is: 'Hafa samband',  en: 'Say hi'  }, h: '../index.html#contact' },
             ].map((n) => (
-              <a key={n.h} href={n.h} style={{ color: p.mute, textDecoration: 'none' }}>{n.l}</a>
+              <a key={n.h} href={n.h} style={{ color: p.mute, textDecoration: 'none' }}>{t(n.l, lang)}</a>
             ))}
           </nav>
           <LangToggle lang={lang} setLang={setLang} palette={p} fontBody={fontText}/>
@@ -162,7 +162,7 @@ function SparkPage({ palette: p }) {
         fontFamily: fontText, fontSize: 12, color: p.mute,
         letterSpacing: '0.04em', display: 'flex', gap: 10, alignItems: 'center',
       }}>
-        <a href="../index.html#work" style={{ color: p.mute, textDecoration: 'none' }}>← Work</a>
+        <a href="../index.html#work" style={{ color: p.mute, textDecoration: 'none' }}>{t({ is: '← Verkefni', en: '← Work' }, lang)}</a>
         <span style={{ color: p.line }}>/</span>
         <span style={{ color: p.ink }}>Team Spark</span>
       </div>
@@ -176,20 +176,20 @@ function SparkPage({ palette: p }) {
               fontSize: 22, color: p.moss, letterSpacing: '-0.01em' }}>01</span>
             <span style={{ fontFamily: fontText, fontSize: 11, color: p.ink,
               textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 600 }}>
-              Formula Student · 2023—26
+              {t({ is: 'Formula Student · 2023—26', en: 'Formula Student · 2023—26' }, lang)}
             </span>
           </div>
           <h1 style={{
             fontFamily: fontDisplay, fontWeight: 600, fontSize: 88, lineHeight: 1.0,
             letterSpacing: '-0.018em', margin: '0 0 18px', color: p.ink,
           }}>
-            How to Build a Car in Six Years
+            {t({ is: 'Hvernig er bíll smíðaður á sex árum', en: 'How to Build a Car in Six Years' }, lang)}
           </h1>
           <p style={{
             fontFamily: fontDisplay, fontStyle: 'italic', fontSize: 24, fontWeight: 400,
             lineHeight: 1.4, color: p.clay, maxWidth: 620, margin: 0,
           }}>
-            A long-form account of Team Spark, the University of Iceland's Formula Student team, and the work it took to bring a car back to competition.
+            {t({ is: 'A long-form account of Team Spark, the University of Iceland\'s Formula Student team, and the work it took to bring a car back to competition.', en: 'A long-form account of Team Spark, the University of Iceland\'s Formula Student team, and the work it took to bring a car back to competition.' }, lang)}
           </p>
         </div>
 
@@ -198,16 +198,16 @@ function SparkPage({ palette: p }) {
           padding: 28, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20,
         }}>
           {[
-            ['Role', 'Production Lead'],
-            ['Timeline', '2023—26'],
-            ['Team', 'Team Spark'],
-            ['Status', 'Spain 2026'],
+            [{ is: 'Hlutverk',      en: 'Role'            }, { is: 'Framleiðslustjóri', en: 'Production Lead' }],
+            [{ is: 'Tímalína',      en: 'Timeline'        }, { is: '2023—26',            en: '2023—26'          }],
+            [{ is: 'Lið',           en: 'Team'            }, { is: 'Team Spark',          en: 'Team Spark'       }],
+            [{ is: 'Staða',         en: 'Status'          }, { is: 'Spánn 2026',          en: 'Spain 2026'       }],
           ].map(([k, v], i) => (
             <div key={i}>
               <div style={{ fontFamily: fontText, fontSize: 10, color: p.mute,
-                textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 600, marginBottom: 6 }}>{k}</div>
+                textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 600, marginBottom: 6 }}>{t(k, lang)}</div>
               <div style={{ fontFamily: fontDisplay, fontWeight: 500,
-                fontSize: 17, color: p.ink, letterSpacing: '-0.01em', lineHeight: 1.35 }}>{v}</div>
+                fontSize: 17, color: p.ink, letterSpacing: '-0.01em', lineHeight: 1.35 }}>{t(v, lang)}</div>
             </div>
           ))}
         </div>
@@ -217,71 +217,71 @@ function SparkPage({ palette: p }) {
         <SparkHero palette={p} fontMono={fontMono}/>
       </section>
 
-      <ArticleSection num="00" label="Opening" heading="Why write this now." paragraphs={SPARK_INTRO} palette={p} SectionLabel={SectionLabel}/>
+      <ArticleSection num="00" label="Opening" heading="Why write this now." paragraphs={SPARK_INTRO} palette={p} SectionLabel={SectionLabel} lang={lang}/>
 
       {SPARK_SECTIONS.map((section, i) => (
         <ArticleSection key={section.num} num={section.num} label={section.label} heading={section.heading}
-          paragraphs={section.paragraphs} palette={p} SectionLabel={SectionLabel} shaded={i % 2 === 1}/>
+          paragraphs={section.paragraphs} palette={p} SectionLabel={SectionLabel} shaded={i % 2 === 1} lang={lang}/>
       ))}
 
       <section style={{ position: 'relative', padding: '120px 80px 96px' }}>
         <div style={{ maxWidth: 760 }}>
-          <SectionLabel num="—">Back to the portfolio</SectionLabel>
+          <SectionLabel num="—">{t({ is: 'Til baka í verkefnasafnið', en: 'Back to the portfolio' }, lang)}</SectionLabel>
           <h2 style={{
             fontFamily: fontDisplay, fontWeight: 600, fontSize: 64, lineHeight: 1.0,
             letterSpacing: '-0.018em', margin: '0 0 32px', color: p.ink,
           }}>
-            Team Spark goes to Spain.
+            {t({ is: 'Team Spark fer til Spánar.', en: 'Team Spark goes to Spain.' }, lang)}
           </h2>
           <p style={{ fontSize: 19, lineHeight: 1.6, color: p.mute, maxWidth: 620, margin: '0 0 36px' }}>
-            This page is a review draft adapted from the long-form Team Spark text. The copy is intentionally kept close to the source so it can be reviewed locally before tightening for the final portfolio version.
+            {t({ is: 'This page is a review draft adapted from the long-form Team Spark text. The copy is intentionally kept close to the source so it can be reviewed locally before tightening for the final portfolio version.', en: 'This page is a review draft adapted from the long-form Team Spark text. The copy is intentionally kept close to the source so it can be reviewed locally before tightening for the final portfolio version.' }, lang)}
           </p>
-          <HLButton palette={p} fontBody={fontText} href="../index.html#work">← More work</HLButton>
+          <HLButton palette={p} fontBody={fontText} href="../index.html#work">{t({ is: '← Fleiri verkefni', en: '← More work' }, lang)}</HLButton>
         </div>
-        <Footer palette={p} fontText={fontText}/>
+        <Footer palette={p} fontText={fontText} lang={lang}/>
       </section>
     </div>
   );
 }
 
-function ArticleSection({ num, label, heading, paragraphs, palette: p, SectionLabel, shaded }) {
+function ArticleSection({ num, label, heading, paragraphs, palette: p, SectionLabel, shaded, lang }) {
   const fontDisplay = `'Source Serif 4', Georgia, serif`;
   return (
     <section style={{ position: 'relative', padding: '88px 80px',
       background: shaded ? p.cream : p.paper, borderBottom: `2px solid ${p.line}` }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80 }}>
         <div>
-          <SectionLabel num={num}>{label}</SectionLabel>
+          <SectionLabel num={num}>{typeof label === 'string' ? t({ is: label, en: label }, lang) : t(label, lang)}</SectionLabel>
           <h2 style={{ fontFamily: fontDisplay, fontWeight: 600, fontSize: 44,
             lineHeight: 1.05, letterSpacing: '-0.018em', margin: 0, color: p.ink }}>
-            {heading}
+            {typeof heading === 'string' ? t({ is: heading, en: heading }, lang) : t(heading, lang)}
           </h2>
         </div>
-        <ArticleBody paragraphs={paragraphs} palette={p}/>
+        <ArticleBody paragraphs={paragraphs} palette={p} lang={lang}/>
       </div>
     </section>
   );
 }
 
-function ArticleBody({ paragraphs, palette: p }) {
+function ArticleBody({ paragraphs, palette: p, lang }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 20,
       fontSize: 18, lineHeight: 1.7, color: p.mute, maxWidth: 720 }}>
       {paragraphs.map((paragraph, i) => (
-        <p key={i} style={{ margin: 0 }}>{paragraph}</p>
+        <p key={i} style={{ margin: 0 }}>{typeof paragraph === 'string' ? t({ is: paragraph, en: paragraph }, lang) : t(paragraph, lang)}</p>
       ))}
     </div>
   );
 }
 
-function Footer({ palette: p, fontText }) {
+function Footer({ palette: p, fontText, lang }) {
   return (
     <div style={{ marginTop: 96, paddingTop: 24, borderTop: `2px solid ${p.line}`,
       display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
       fontFamily: fontText, fontSize: 11, color: p.mute,
       letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
       <span>© 2026 — Sindri Már Hilmarsson</span>
-      <a href="../index.html#work" style={{ color: p.ink, textDecoration: 'none' }}>← More work</a>
+      <a href="../index.html#work" style={{ color: p.ink, textDecoration: 'none' }}>{t({ is: '← Fleiri verkefni', en: '← More work' }, lang)}</a>
     </div>
   );
 }
